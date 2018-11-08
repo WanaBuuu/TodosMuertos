@@ -15,7 +15,11 @@ public class Modelo {
     private int nhumanos, ncazaVampiros, nzombies, nvampiros,ndia;
     private float  temperatura;
    
-    
+    /**De cada humano nos interesa almacenar y conocer en el programa el día de nacimiento y la
+    velocidad al correr (que tiene una medida de 60 a 100).
+    ◦ La velocidad será asignada a cada humano en el rango 60-100 al crearse el entorno.
+    Después, las velocidad se hereda, es decir, cuando un humano tiene descendencia, sus hijos
+    tienen su misma velocidad.*/
     
     public Modelo (){
         /** NUMERO INICIAL DE LOS SERES QUE VA A HABER EN LA SIMULACION*/

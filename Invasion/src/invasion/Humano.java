@@ -16,38 +16,41 @@ public class Humano extends Seres{
     private boolean meMuero = false, tengoHijo = false;
     
     //nhijos es el numero de hijos que tiene el humano
-    private int birth, nhijos;
-
+    private int birth, nhijos, velocidad;
+    
     public Humano() {
        
     }
     
-    public Humano(int birth) {
+    public Humano(int birth, int velocidad) {
         this.birth = birth;
+        this.velocidad = velocidad;
     }
     
+
+    public int getNhijos() {
+        return nhijos;
+    }
+
+    
+    @Override
     public final int calcularRandom(int desde, int hasta){
         Random aleatorio = new Random(System.currentTimeMillis());
         
         return aleatorio.nextInt(hasta-desde+1) + desde;
     }
     
-    @Override
-    public boolean meMuero() {
+    public boolean meMuero(int dia) {
         
         return this.meMuero;
     }
     
-    /**Mayor o igual a 22 grados Probabilidad de reproducción: 1/15
-    Menor a 22 y mayor a 18 grados Probabilidad de reproducción: 1/30
-    Menor o igual a 18 grados Probabilidad de reproducción: 1/50
-    
-    Si un día se reproduce un humano, ese día podrá tener un número de hijos en el rango 1-3
-    (con la misma probabilidad para cada opción). Para simplificar el simulador, los humanos no
-    tienen sexo, y cada individuo puede reproducirse utilizando las probabilidades anteriores.
+    /**
+    Un humano muere diariamente por muerte natural con una probabilidad de 1/500.
+    Aparte, un humano puede morir diariamente por otras causas (accidentes, inanición,
+    enfermedades, etc.) con una probabilidad diaria de 1/300.
     */
 
-    @Override
     public boolean tengoHijo(float temperatura) {
         
         int prob, aux, aux2;

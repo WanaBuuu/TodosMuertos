@@ -22,14 +22,9 @@ public class Zombie extends Seres{
 
      @Override
     public boolean meMuero(int dia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    @Override
-    public boolean tengoHijo(float temperatura) {
         
-        return this.tengoHijo;
     }
+
 
     @Override
     public int calcularRandom(int desde, int hasta) {

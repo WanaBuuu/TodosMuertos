@@ -20,13 +20,7 @@ public class Vampiro extends Seres{
     public Vampiro(int birth){
         this.birth = birth;
     }
-    
-    @Override
-    public boolean tengoHijo(float temperatura) {
-        
-        return this.tengoHijo;
-    }
-    
+
     public ArrayList tengoQueComer(ArrayList <Humano> humanos, ArrayList <Vampiro> vampiros, int birth){
         Vampiro vampiroAux;
         

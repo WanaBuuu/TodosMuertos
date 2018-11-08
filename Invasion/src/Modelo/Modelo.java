@@ -5,6 +5,11 @@
  */
 package Modelo;
 
+import invasion.CazaVampiro;
+import invasion.Humano;
+import invasion.Vampiro;
+import invasion.Zombie;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -14,7 +19,14 @@ import java.util.Random;
 public class Modelo {
     private int nhumanos, ncazaVampiros, nzombies, nvampiros,ndia;
     private float  temperatura;
+            
+    private ArrayList <Humano> humanos;
+    private ArrayList <CazaVampiro> cazaVampiros;
+    private ArrayList <Vampiro> vampiros;
+    private ArrayList <Zombie> zombies;
    
+    
+    
     /**De cada humano nos interesa almacenar y conocer en el programa el día de nacimiento y la
     velocidad al correr (que tiene una medida de 60 a 100).
     ◦ La velocidad será asignada a cada humano en el rango 60-100 al crearse el entorno.
@@ -89,6 +101,21 @@ public class Modelo {
        */
 
     }
+    
+    public void crearSeres(){
+        
+        int tempveloc;
+        //Humanos
+        for(int i = 0; i < this.nhumanos; i++){
+            
+            tempveloc = this.calcularRandom(60, 100);
+            
+            Humano humano = new Humano(this.ndia, tempveloc);
+            humanos.add(humano);
+        }
+        
+    }
+    
 }
 
 

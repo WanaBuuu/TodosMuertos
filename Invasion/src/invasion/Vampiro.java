@@ -17,6 +17,10 @@ public class Vampiro extends Seres{
     private boolean meMuero = false, tengoHijo = false;
     private int nmata = 0, birth, random, tengoQueComer = -50;
     
+    public Vampiro(int birth){
+        this.birth = birth;
+    }
+    
     @Override
     public boolean meMuero() {
         
@@ -29,24 +33,27 @@ public class Vampiro extends Seres{
         return this.tengoHijo;
     }
     
-    public ArrayList tengoQueComer(ArrayList <Humano> humanos, ArrayList <Vampiro> vampiros){
-        Humano humanoAux = new Humano();
+    public ArrayList tengoQueComer(ArrayList <Humano> humanos, ArrayList <Vampiro> vampiros, int birth){
+        Vampiro vampiroAux;
         
-        this.random = this.calculoRandom();
+        this.random = this.calcularRandom(1, 100); // ¿me toca comer?
         
-        if (this.random >= 50){ // me toca comer
-            this.random = this.calculoRandom(); // voy a ver si tengo que matarlo o si lo voy a tranformar
+        if (this.random >= 50){ // TENGO QUE COMEEER
+            this.random = this.calcularRandom(1, 100); // voy a ver si tengo que matarlo o si lo voy a tranformar
            
-            if(humanos.isEmpty()){
+            if(humanos.isEmpty()){ // ME MUERO POR NO COMER
                 vampiros.remove(random);
             }
             
-            if (this.random >= 50){ // lo mato 
+            if (this.random >= 50){ // HUMANO MUERE
                 humanos.remove(random);
+                this.nmata++;
             }
-            else{ // el humanose transforma
-                /*humanoAux = humanos.get(random);
-                vampiros.add();*/
+            else{ // HUMANO SE TRANSFORMA
+                humanos.remove(random); // el humano deja de ser humano
+                
+                vampiroAux =  new Vampiro(birth); // creamos el nuevo vampiro
+                vampiros.add(vampiroAux); 
             }
         }
         

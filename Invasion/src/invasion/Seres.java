@@ -10,27 +10,7 @@ package invasion;
  * @author nere1
  */
 public abstract class Seres  {
-    int birth;
-    int id;
 
     public abstract boolean meMuero();
-    public abstract boolean tengoHijo();
-    
-    public int getBirth() {
-        return birth;
-    }
-
-    public void setBirth(int birth) {
-        this.birth = birth;
-    }
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    
+    public abstract boolean tengoHijo();  
 }

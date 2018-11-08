@@ -13,6 +13,6 @@ import java.util.ArrayList;
  */
 public abstract class Seres  {
 
-    public abstract ArrayList meMuero(int dia, ArrayList listaTuTipo);
+    public abstract boolean meMuero();
     public abstract int calcularRandom(int desde, int hasta);
 }

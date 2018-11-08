@@ -46,10 +46,16 @@ public class Vampiro extends Seres{
     }
     
     @Override
-    public ArrayList meMuero(int dia, ArrayList listaTuTipo) {
+    public boolean meMuero() {
+        /**YO CREO QUE EL VAMPIRO NO TIENE QUE TENER EL ARRAYLIST, PORQUE LO VAMOS A GESTIONAR COMO UNA INSTANCIA
+         * POR LO QUE SI SE MUERE, LE QUITARIAMOS DEL ARRAY EN EL MODELO Y NO TIENE SENTIDO QUE SEA LA INSTANCIA
+         * LA QUE LE DEVUELVA EL ARRAY AL MODELO HABIENDOSE BORRADO A SI MISMO DE EL
+         * 
+         * Y TODO ESTO PA QUE SEPAS QUE LO HE QUITADO :)
+         */
+        //listaTuTipo.remove(random);
         
-        listaTuTipo.remove(random);
-        
-        return listaTuTipo;
+        //return listaTuTipo;
+        return true;
     }
 }

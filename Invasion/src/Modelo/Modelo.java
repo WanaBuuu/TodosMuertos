@@ -73,6 +73,22 @@ public class Modelo {
                 this.temperatura += 0.5;
         }
     }
+    
+    public void quienMuere(){
+        
+        /**PARA HUMANO:
+         * 
+        * IMPLEMENTAR EN EL MODELO
+        * 1) SACAR NUM ALEATORIO ENTRE 1 Y 500
+        * 2)SI EXISTE ESA POSICION EN EL VECTOR DE HUMANOS, SE MUERE EL HUMANO QUE ESTE EN ESA POS
+        * PARA OTRAS MUERTES LO MISMO
+        * 
+       Un humano muere diariamente por muerte natural con una probabilidad de 1/500.
+       Aparte, un humano puede morir diariamente por otras causas (accidentes, inanición,
+       enfermedades, etc.) con una probabilidad diaria de 1/300.
+       */
+
+    }
 }
 
 

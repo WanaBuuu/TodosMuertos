@@ -16,7 +16,7 @@ public class Humano extends Seres{
     private boolean meMuero = false, tengoHijo = false;
     
     //nhijos es el numero de hijos que tiene el humano
-    private int birth, nhijos, velocidad;
+    private int birth, nhijos, totalhijos, velocidad;
     
     public Humano() {
        
@@ -25,6 +25,8 @@ public class Humano extends Seres{
     public Humano(int birth, int velocidad) {
         this.birth = birth;
         this.velocidad = velocidad;
+        this.nhijos = 0;
+        this.totalhijos = 0;
     }
     
 
@@ -40,16 +42,19 @@ public class Humano extends Seres{
         return aleatorio.nextInt(hasta-desde+1) + desde;
     }
     
-    public boolean meMuero(int dia) {
-        
+    public boolean meMuero() {
+        /**
+        * IMPLEMENTAR EN EL MODELO
+        * 1) SACAR NUM ALEATORIO ENTRE 1 Y 500
+        * 2)SI EXISTE ESA POSICION EN EL VECTOR DE HUMANOS, SE MUERE EL HUMANO QUE ESTE EN ESA POS
+        * PARA OTRAS MUERTES LO MISMO
+        * 
+       Un humano muere diariamente por muerte natural con una probabilidad de 1/500.
+       Aparte, un humano puede morir diariamente por otras causas (accidentes, inanición,
+       enfermedades, etc.) con una probabilidad diaria de 1/300.
+       */
         return this.meMuero;
     }
-    
-    /**
-    Un humano muere diariamente por muerte natural con una probabilidad de 1/500.
-    Aparte, un humano puede morir diariamente por otras causas (accidentes, inanición,
-    enfermedades, etc.) con una probabilidad diaria de 1/300.
-    */
 
     public boolean tengoHijo(float temperatura) {
         
@@ -73,7 +78,8 @@ public class Humano extends Seres{
         //Si tengo hijos ese dia, calculo cuants tengo entre 1-3 y los sumos a nhijos
         if(this.tengoHijo){
             aux2 = this.calcularRandom(1, 3);
-            this.nhijos += aux2;
+            this.nhijos = aux2;
+            this.totalhijos += this.nhijos;
         }
         
         return this.tengoHijo;

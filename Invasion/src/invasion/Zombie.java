@@ -33,12 +33,14 @@ public class Zombie extends Seres{
     }
     
     @Override
-    public ArrayList meMuero(int dia, ArrayList listaTuTipo) {
+    public boolean meMuero(int dia) {
         if((dia - this.birth) >= 8){ // ME TENGO QUE MORIR
             listaTuTipo.remove(this); // HAY QUE MIRAR ESTO NO SE SI ESTO DE BERDAD BORRA DE VDD LO QUE QUIERO
+            
+            //LO MISMO QUE EN VAMPIRO pero aqui si que necesitamos el dia
         }
             
-        return listaTuTipo;
+        return true;
     }
 
 

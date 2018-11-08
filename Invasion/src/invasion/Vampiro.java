@@ -21,31 +21,21 @@ public class Vampiro extends Seres{
         this.birth = birth;
     }
 
-    public ArrayList tengoQueComer(ArrayList <Humano> humanos, ArrayList <Vampiro> vampiros, int birth){
-        Vampiro vampiroAux;
-        
+    public int tengoQueComer(int birth){
         this.random = this.calcularRandom(1, 100); // ¿me toca comer?
         
         if (this.random >= 50){ // TENGO QUE COMEEER
-            this.random = this.calcularRandom(1, 100); // voy a ver si tengo que matarlo o si lo voy a tranformar
-           
-            if(humanos.isEmpty()){ // ME MUERO POR NO COMER
-                vampiros.remove(random);
-            }
-            
+            this.random = this.calcularRandom(1, 100); // voy a ver si tengo que matarlo o si lo voy a tranformar 
             if (this.random >= 50){ // HUMANO MUERE
-                humanos.remove(random);
-                this.nmata++;
-            }
-            else{ // HUMANO SE TRANSFORMA
-                humanos.remove(random); // el humano deja de ser humano
-                
-                vampiroAux =  new Vampiro(birth); // creamos el nuevo vampiro
-                vampiros.add(vampiroAux); 
-            }
+                this.nmata++; // contamos aqui ya que mato un humano
+                }
+        }
+        else{
+            this.random = -50;   /** para que si no se mete en la condicion podemos saber que es por que no le tocaba comer y podamos diferenciar
+                                     el random de si no toca comer al de si toca tranformar o matar*/
         }
         
-        return humanos;
+       return this.random;
     }
 
     @Override
@@ -57,6 +47,8 @@ public class Vampiro extends Seres{
     
     @Override
     public ArrayList meMuero(int dia, ArrayList listaTuTipo) {
+        
+        listaTuTipo.remove(random);
         
         return listaTuTipo;
     }

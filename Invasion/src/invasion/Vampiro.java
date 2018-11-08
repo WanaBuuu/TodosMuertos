@@ -30,31 +30,33 @@ public class Vampiro extends Seres{
     }
     
     public ArrayList tengoQueComer(ArrayList <Humano> humanos, ArrayList <Vampiro> vampiros){
-        this.random = this.calculoRondom();
+        Humano humanoAux = new Humano();
+        
+        this.random = this.calculoRandom();
         
         if (this.random >= 50){ // me toca comer
-            this.random = this.calculoRondom(); // voy a ver si tengo que matarlo o si lo voy a tranformar
+            this.random = this.calculoRandom(); // voy a ver si tengo que matarlo o si lo voy a tranformar
            
             if(humanos.isEmpty()){
-                // tengo que morir 
+                vampiros.remove(random);
             }
             
             if (this.random >= 50){ // lo mato 
                 humanos.remove(random);
             }
-            else{
-                
+            else{ // el humanose transforma
+                /*humanoAux = humanos.get(random);
+                vampiros.add();*/
             }
         }
         
         return humanos;
     }
-    
-    /** EN ESTE CASO LAS PROBABILIDADES DE CUALQUIER COSA QUE TENGA QUE HACER EL VAMPIRO SON DEL 50 POR LO QUE NO ES NECESARIO
-     PASARLE LOS PARAMETROS DESDE HASTA*/
-    public final int calculoRondom(){
+
+    @Override
+    public int calcularRandom(int desde, int hasta) {
         Random aleatorio = new Random(System.currentTimeMillis());
         
-        return aleatorio.nextInt(100-1+1) + 1;
+        return aleatorio.nextInt(hasta-desde+1) + desde;
     }
 }

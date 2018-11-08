@@ -18,6 +18,10 @@ public class Humano extends Seres{
     //nhijos es el numero de hijos que tiene el humano
     private int birth, nhijos;
 
+    public Humano() {
+       
+    }
+    
     public Humano(int birth) {
         this.birth = birth;
     }

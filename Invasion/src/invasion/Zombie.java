@@ -5,6 +5,8 @@
  */
 package invasion;
 
+import java.util.Random;
+
 /**
  *
  * @author nere1
@@ -24,5 +26,12 @@ public class Zombie extends Seres{
     public boolean tengoHijo(float temperatura) {
         
         return this.tengoHijo;
+    }
+
+    @Override
+    public int calcularRandom(int desde, int hasta) {
+        Random aleatorio = new Random(System.currentTimeMillis());
+        
+        return aleatorio.nextInt(hasta-desde+1) + desde;
     }
 }

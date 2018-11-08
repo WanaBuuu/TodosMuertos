@@ -5,12 +5,14 @@
  */
 package invasion;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author nere1
  */
 public abstract class Seres  {
 
-    public abstract boolean meMuero(int dia);
+    public abstract ArrayList meMuero(int dia, ArrayList listaTuTipo);
     public abstract int calcularRandom(int desde, int hasta);
 }

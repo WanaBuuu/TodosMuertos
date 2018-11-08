@@ -5,6 +5,7 @@
  */
 package invasion;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -21,8 +22,9 @@ public class Zombie extends Seres{
     }
 
      @Override
-    public boolean meMuero(int dia) {
+    public ArrayList meMuero(int dia, ArrayList listaTuTipo) {
         
+        return listaTuTipo;
     }
 
 

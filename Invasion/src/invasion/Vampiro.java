@@ -56,8 +56,8 @@ public class Vampiro extends Seres{
     }
     
     @Override
-    public boolean meMuero(int dia) {
+    public ArrayList meMuero(int dia, ArrayList listaTuTipo) {
         
-        return this.meMuero;
+        return listaTuTipo;
     }
 }

@@ -9,19 +9,8 @@ package invasion;
  *
  * @author nere1
  */
-public class CazaVampiro extends Seres{
+public class CazaVampiro extends Humano{
     
     private boolean meMuero = false, tengoHijo = false ;
     
-    @Override
-    public boolean meMuero() {
-        
-        return this.meMuero;
-    }
-
-    @Override
-    public boolean tengoHijo() {
-        
-        return this.tengoHijo;
-    }
 }

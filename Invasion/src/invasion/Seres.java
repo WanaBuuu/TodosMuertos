@@ -13,4 +13,5 @@ public abstract class Seres  {
 
     public abstract boolean meMuero();
     public abstract boolean tengoHijo(float temperatura);  
+    public abstract int calcularRandom(int desde, int hasta);
 }

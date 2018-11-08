@@ -74,3 +74,26 @@ public class Modelo {
         }
     }
 }
+
+
+/** 
+ 
+ if(humanos.isEmpty()){ // ME MUERO POR NO COMER
+                vampiros = this.meMuero(birth, vampiros);
+                comodin = vampiros;
+            }
+            else{
+                 if (this.random >= 50){ // HUMANO MUERE
+                humanos.remove(random);
+                this.nmata++;
+                }
+                 /** AQUI TENEMOS EL PROBLEMA DE QUE NECESITAMOS DEBOLVER LOS DOS VECTORES */
+                /*else{ // HUMANO SE TRANSFORMA
+                    humanos.remove(random); // el humano deja de ser humano
+
+                    vampiroAux =  new Vampiro(birth); // creamos el nuevo vampiro
+                    vampiros.add(vampiroAux); 
+                }
+            }
+ 
+ */

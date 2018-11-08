@@ -12,5 +12,9 @@ package invasion;
 public class CazaVampiro extends Humano{
     
     private boolean meMuero = false, tengoHijo = false ;
+
+    public CazaVampiro(int birth) {
+        super(birth);
+    }
     
 }

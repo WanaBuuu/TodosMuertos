@@ -21,7 +21,7 @@ public class Zombie extends Seres{
     }
 
     @Override
-    public boolean tengoHijo() {
+    public boolean tengoHijo(float temperatura) {
         
         return this.tengoHijo;
     }

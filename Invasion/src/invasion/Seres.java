@@ -12,5 +12,5 @@ package invasion;
 public abstract class Seres  {
 
     public abstract boolean meMuero();
-    public abstract boolean tengoHijo();  
+    public abstract boolean tengoHijo(float temperatura);  
 }

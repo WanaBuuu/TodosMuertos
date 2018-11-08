@@ -18,7 +18,7 @@ public class Modelo {
     
     
     public Modelo (){
-        /** NEMERO INICIAL DE LOS SERES QUE VA A HABER EN LA SIMULACION*/
+        /** NUMERO INICIAL DE LOS SERES QUE VA A HABER EN LA SIMULACION*/
         this.nhumanos = calcularRandom(4000, 6000);
         this.ncazaVampiros = calcularRandom(10, 15);
         this.nvampiros = calcularRandom(15, 20);
@@ -31,7 +31,7 @@ public class Modelo {
     }
     
     
-    /** CALCULA UN NUMERO ALEATORIO ENTRE LOS VALORE QUE SE LE PASAN*/
+    /** CALCULA UN NUMERO ALEATORIO DENTRO DEL RANGO QUE SE LE PASA*/
     public final int calcularRandom(int desde, int hasta){
         Random aleatorio = new Random(System.currentTimeMillis());
         
@@ -42,7 +42,7 @@ public class Modelo {
         this.ndia++;
         
         /** CALCULAMOS LA NUEVA TEMPERATURA */
-        
+        this.calcularTemperatura();
     }
     
     public void calcularTemperatura(){

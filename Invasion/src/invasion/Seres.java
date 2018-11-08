@@ -11,7 +11,7 @@ package invasion;
  */
 public abstract class Seres  {
 
-    public abstract boolean meMuero();
+    public abstract boolean meMuero(int dia);
     public abstract boolean tengoHijo(float temperatura);  
     public abstract int calcularRandom(int desde, int hasta);
 }

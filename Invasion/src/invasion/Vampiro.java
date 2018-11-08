@@ -22,12 +22,6 @@ public class Vampiro extends Seres{
     }
     
     @Override
-    public boolean meMuero() {
-        
-        return this.meMuero;
-    }
-
-    @Override
     public boolean tengoHijo(float temperatura) {
         
         return this.tengoHijo;
@@ -65,5 +59,11 @@ public class Vampiro extends Seres{
         Random aleatorio = new Random(System.currentTimeMillis());
         
         return aleatorio.nextInt(hasta-desde+1) + desde;
+    }
+    
+    @Override
+    public boolean meMuero(int dia) {
+        
+        return this.meMuero;
     }
 }

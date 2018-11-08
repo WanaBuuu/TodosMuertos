@@ -14,14 +14,17 @@ import java.util.Random;
 public class Zombie extends Seres{
 
     private boolean meMuero = false, tengoHijo = false ;
+    int birth;
     
-    
-    @Override
-    public boolean meMuero() {
-        
-        return this.meMuero;
+    public Zombie(int birth){
+        this.birth = birth;
     }
 
+     @Override
+    public boolean meMuero(int dia) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public boolean tengoHijo(float temperatura) {
         
@@ -34,4 +37,6 @@ public class Zombie extends Seres{
         
         return aleatorio.nextInt(hasta-desde+1) + desde;
     }
+
+   
 }

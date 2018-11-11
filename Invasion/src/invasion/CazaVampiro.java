@@ -17,6 +17,6 @@ public class CazaVampiro extends Humano{
         super(birth, velocidad);
     }
 
-    
+   
     
 }

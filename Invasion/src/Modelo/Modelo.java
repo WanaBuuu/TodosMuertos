@@ -119,23 +119,29 @@ public class Modelo {
     }
     
     public void quienMuere(){
+        //A LO MEJOR SE PUEDE SIMPLIFICAR
+        for(int i = 0; i < humanos.size(); i++){
+            
+            if(humanos.get(i).meMuero())
+                humanos.remove(i);
+        }
         
-        /**PARA HUMANO:
-         * 
-        * IMPLEMENTAR EN EL MODELO
-        * 1) SACAR NUM ALEATORIO ENTRE 1 Y 500
-        * 2)SI EXISTE ESA POSICION EN EL VECTOR DE HUMANOS, SE MUERE EL HUMANO QUE ESTE EN ESA POS
-        * PARA OTRAS MUERTES LO MISMO
-        * 
-       Un humano muere diariamente por muerte natural con una probabilidad de 1/500.
-       Aparte, un humano puede morir diariamente por otras causas (accidentes, inanición,
-       enfermedades, etc.) con una probabilidad diaria de 1/300.
-       */
+        for(int i = 0; i < cazaVampiros.size(); i++){
+            
+            if(cazaVampiros.get(i).meMuero())
+                cazaVampiros.remove(i);
+        }
+        
+        for(int i = 0; i < zombies.size(); i++){
+            
+            if(zombies.get(i).meMuero())
+                zombies.remove(i);
+        }
 
     }
     
     public void crearSeres(){
-        
+        //esta tambien se podria simplificar
         int tempveloc;
         //Humanos
         for(int i = 0; i < this.nhumanos; i++){

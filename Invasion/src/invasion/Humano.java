@@ -56,6 +56,14 @@ public class Humano extends Seres{
         
         return this.meMuero;
     }
+
+    public boolean isMeMuero() {
+        return meMuero;
+    }
+
+    public boolean isTengoHijo() {
+        return tengoHijo;
+    }
     
     /**
     * IMPLEMENTAR EN EL MODELO

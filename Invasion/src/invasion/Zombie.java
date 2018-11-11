@@ -15,12 +15,10 @@ import java.util.Random;
 public class Zombie extends Seres{
 
     private boolean meMuero = false, tengoHijo = false, meTocaMatar = false;
-<<<<<<< HEAD
-    private int birth, nconvertidos, random;
+
     private Modelo model;
-=======
-    int birth, nconvertidos, random, probabilidad;
->>>>>>> c9f5e1f548712f17a28d14254efc49bb0a83d43e
+    private int birth, nconvertidos, random, probabilidad;
+
     
     public Zombie(int birth){
         this.birth = birth;
@@ -43,16 +41,12 @@ public class Zombie extends Seres{
         int dia = model.getDia();//Le paso el modelo para que sepa el numero de dia
         
         if((dia - this.birth) >= 8){ // ME TENGO QUE MORIR
-<<<<<<< HEAD
             meMuero = true;
-=======
             //listaTuTipo.remove(this); // HAY QUE MIRAR ESTO NO SE SI ESTO DE BERDAD BORRA DE VDD LO QUE QUIERO
             this.meMuero = true;
-            //LO MISMO QUE EN VAMPIRO pero aqui si que necesitamos el dia
->>>>>>> c9f5e1f548712f17a28d14254efc49bb0a83d43e
         }
         
-        return meMuero;
+        return this.meMuero;
     }
 
     @Override

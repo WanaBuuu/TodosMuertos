@@ -43,10 +43,9 @@ public class Modelo {
         //CREAMOS EL MODELO, Y DEBERIA HACERSE CUANDO EMPEZAMOS LA SIMULACION
     }
     
-<<<<<<< HEAD
     public int getDia() {
-        return ndia;
-=======
+        return this.ndia;
+    }
     /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
     * ASI QUE SUBONGO QUE DEBEREMOS TENER UN BOOL PARA CUANDO HAGAMOS EL SIGUIENTE DIA
     * RESTABLECER A UNA TEM NORMAL
@@ -73,8 +72,6 @@ public class Modelo {
         for( Zombie zombie : zombies){
             zombie.setProbabilidad(33);
         }
-        
->>>>>>> c9f5e1f548712f17a28d14254efc49bb0a83d43e
     }
     
     /** CALCULA UN NUMERO ALEATORIO DENTRO DEL RANGO QUE SE LE PASA*/

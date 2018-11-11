@@ -5,7 +5,7 @@
  */
 package invasion;
 
-import java.util.ArrayList;
+import Modelo.Modelo;
 import java.util.Random;
 
 /**
@@ -15,7 +15,8 @@ import java.util.Random;
 public class Zombie extends Seres{
 
     private boolean meMuero = false, tengoHijo = false, meTocaMatar = false;
-    int birth, nconvertidos, random;
+    private int birth, nconvertidos, random;
+    private Modelo model;
     
     public Zombie(int birth){
         this.birth = birth;
@@ -33,14 +34,14 @@ public class Zombie extends Seres{
     }
     
     @Override
-    public boolean meMuero(int dia) {
+    public boolean meMuero() {
+        int dia = model.getDia();//Le paso el modelo para que sepa el numero de dia
+        
         if((dia - this.birth) >= 8){ // ME TENGO QUE MORIR
-            listaTuTipo.remove(this); // HAY QUE MIRAR ESTO NO SE SI ESTO DE BERDAD BORRA DE VDD LO QUE QUIERO
-            
-            //LO MISMO QUE EN VAMPIRO pero aqui si que necesitamos el dia
+            meMuero = true;
         }
-            
-        return true;
+        
+        return meMuero;
     }
 
 

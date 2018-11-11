@@ -17,7 +17,9 @@ import java.util.Random;
  * @author nere1
  */
 public class Modelo {
-    private int nhumanos, ncazaVampiros, nzombies, nvampiros,ndia;
+    private int nhumanos, ncazaVampiros, nzombies, nvampiros, ndia;
+
+    
     private float  temperatura;
             
     private ArrayList <Humano> humanos;
@@ -34,18 +36,14 @@ public class Modelo {
     tienen su misma velocidad.*/
     
     public Modelo (){
-        /** NUMERO INICIAL DE LOS SERES QUE VA A HABER EN LA SIMULACION*/
-        this.nhumanos = calcularRandom(4000, 6000);
-        this.ncazaVampiros = calcularRandom(10, 15);
-        this.nvampiros = calcularRandom(15, 20);
-        this.nzombies = calcularRandom(20, 30);
         
-        /** SE ESTABLECE LA TEMPERATURA INICIAL QUE SE TIENE */
-        this.temperatura = 20;
-        
-        this.ndia = 1;
+        //TODO ESTO LO HE CAMBIADO A CREARENTORNO PORQUE SINO SERIAN SIEMPRE LOS MISMOS NUMEROS DE SERES Y SE CREARIAN CUANDO
+        //CREAMOS EL MODELO, Y DEBERIA HACERSE CUANDO EMPEZAMOS LA SIMULACION
     }
     
+    public int getDia() {
+        return ndia;
+    }
     
     /** CALCULA UN NUMERO ALEATORIO DENTRO DEL RANGO QUE SE LE PASA*/
     public final int calcularRandom(int desde, int hasta){
@@ -114,6 +112,46 @@ public class Modelo {
             humanos.add(humano);
         }
         
+        //CazaVampiros
+        for(int x = 0; x < this.ncazaVampiros; x++){
+            
+            tempveloc = this.calcularRandom(60, 100);
+            
+            CazaVampiro cazaVampiro = new CazaVampiro(this.ndia, tempveloc);
+            cazaVampiros.add(cazaVampiro);
+        }
+        
+        //Vampiros
+        for(int j = 0; j < this.nvampiros; j++){
+            
+            Vampiro vampiro = new Vampiro(this.ndia);
+            vampiros.add(vampiro);
+        }
+                
+        //Zombies
+        for(int y = 0; y < this.nzombies; y++){
+            
+            Zombie zombie = new Zombie(this.ndia);
+            zombies.add(zombie);
+        }
+                
+    }
+    
+    public void crearEntorno(){
+        
+        /** NUMERO INICIAL DE LOS SERES QUE VA A HABER EN LA SIMULACION*/
+        this.nhumanos = calcularRandom(4000, 6000);
+        this.ncazaVampiros = calcularRandom(10, 15);
+        this.nvampiros = calcularRandom(15, 20);
+        this.nzombies = calcularRandom(20, 30);
+        
+        /** SE ESTABLECE LA TEMPERATURA INICIAL QUE SE TIENE */
+        this.temperatura = 20;
+        
+        this.ndia = 1;
+        
+        //Creamos los seres
+        this.crearSeres();
     }
     
 }

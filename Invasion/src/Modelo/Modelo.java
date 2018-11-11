@@ -49,18 +49,18 @@ public class Modelo {
     }
     
     /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
-     * ASI QUE SUBONGO QUE DEBEREMOS TENER UN BOOL PARA CUANDO HAGAMOS EL SIGUIENTE DIA
-     * RESTABLECER A UNA TEM NORMAL
-     */
+    * ASI QUE SUBONGO QUE DEBEREMOS TENER UN BOOL PARA CUANDO HAGAMOS EL SIGUIENTE DIA
+    * RESTABLECER A UNA TEM NORMAL
+    */
     public void calentamientoGlobal(){
         this.temperatura += 10;
         this.cambioGlobal = true;
     }
     
-     /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
-     * ASI QUE SUBONGO QUE DEBEREMOS TENER UN BOOL PARA CUANDO HAGAMOS EL SIGUIENTE DIA
-     * RESTABLECER A UNA TEM NORMAL
-     */
+    /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
+    * ASI QUE SUBONGO QUE DEBEREMOS TENER UN BOOL PARA CUANDO HAGAMOS EL SIGUIENTE DIA
+    * RESTABLECER A UNA TEM NORMAL
+    */
     public void enfriamientoGlobal(){
         this.temperatura -= 10;
         this.cambioGlobal = true;
@@ -71,10 +71,11 @@ public class Modelo {
      * que un zombie alcance, y por tanto convierta a un humano en zombie, a 1/3.
      */
     public void invasionZombie(){
-        
+        for( Zombie zombie : zombies){
+            zombie.setProbabilidad(33);
+        }
         
     }
-    
     
     /** CALCULA UN NUMERO ALEATORIO DENTRO DEL RANGO QUE SE LE PASA*/
     public final int calcularRandom(int desde, int hasta){

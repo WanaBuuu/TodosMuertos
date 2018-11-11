@@ -15,16 +15,17 @@ import java.util.Random;
 public class Zombie extends Seres{
 
     private boolean meMuero = false, tengoHijo = false, meTocaMatar = false;
-    int birth, nconvertidos, random;
+    int birth, nconvertidos, random, probabilidad;
     
     public Zombie(int birth){
         this.birth = birth;
+        this.probabilidad = 10;
     }
 
     public boolean MeTocaConvertir (){
         this.random = this.calcularRandom(1, 100);
         
-        if(this.random <= 10){ // ME TOCA MAAAAAR
+        if(this.random <= this.probabilidad){ // ME TOCA MAAAAAR
             meTocaMatar = true;
             this.nconvertidos++;
         }
@@ -35,14 +36,13 @@ public class Zombie extends Seres{
     @Override
     public boolean meMuero(int dia) {
         if((dia - this.birth) >= 8){ // ME TENGO QUE MORIR
-            listaTuTipo.remove(this); // HAY QUE MIRAR ESTO NO SE SI ESTO DE BERDAD BORRA DE VDD LO QUE QUIERO
-            
+            //listaTuTipo.remove(this); // HAY QUE MIRAR ESTO NO SE SI ESTO DE BERDAD BORRA DE VDD LO QUE QUIERO
+            this.meMuero = true;
             //LO MISMO QUE EN VAMPIRO pero aqui si que necesitamos el dia
         }
             
         return true;
     }
-
 
     @Override
     public int calcularRandom(int desde, int hasta) {
@@ -51,5 +51,9 @@ public class Zombie extends Seres{
         return aleatorio.nextInt(hasta-desde+1) + desde;
     }
 
-   
+    public void setProbabilidad(int probabilidad) {
+        this.probabilidad = probabilidad;
+    }
+
+    
 }

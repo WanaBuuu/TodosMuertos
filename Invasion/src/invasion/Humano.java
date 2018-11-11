@@ -42,7 +42,7 @@ public class Humano extends Seres{
         return aleatorio.nextInt(hasta-desde+1) + desde;
     }
     
-    public boolean meMuero() {
+    public boolean meMuero(int dia) {
         /**
         * IMPLEMENTAR EN EL MODELO
         * 1) SACAR NUM ALEATORIO ENTRE 1 Y 500

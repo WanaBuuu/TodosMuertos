@@ -24,6 +24,8 @@ public class Modelo {
     private ArrayList <CazaVampiro> cazaVampiros;
     private ArrayList <Vampiro> vampiros;
     private ArrayList <Zombie> zombies;
+    
+    private boolean cambioGlobal = false;
    
     
     
@@ -46,6 +48,33 @@ public class Modelo {
         this.ndia = 1;
     }
     
+    /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
+     * ASI QUE SUBONGO QUE DEBEREMOS TENER UN BOOL PARA CUANDO HAGAMOS EL SIGUIENTE DIA
+     * RESTABLECER A UNA TEM NORMAL
+     */
+    public void calentamientoGlobal(){
+        this.temperatura += 10;
+        this.cambioGlobal = true;
+    }
+    
+     /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
+     * ASI QUE SUBONGO QUE DEBEREMOS TENER UN BOOL PARA CUANDO HAGAMOS EL SIGUIENTE DIA
+     * RESTABLECER A UNA TEM NORMAL
+     */
+    public void enfriamientoGlobal(){
+        this.temperatura -= 10;
+        this.cambioGlobal = true;
+    }
+    
+    /**
+     * Crea una opción que permita incrementar la probabilidad de
+     * que un zombie alcance, y por tanto convierta a un humano en zombie, a 1/3.
+     */
+    public void invasionZombie(){
+        
+        
+    }
+    
     
     /** CALCULA UN NUMERO ALEATORIO DENTRO DEL RANGO QUE SE LE PASA*/
     public final int calcularRandom(int desde, int hasta){
@@ -55,6 +84,11 @@ public class Modelo {
     }
     
     public void nextDay(){
+        if (cambioGlobal){
+            this.temperatura = 22;
+            this.cambioGlobal = false;
+        }
+        
         this.ndia++;
         
         /** CALCULAMOS LA NUEVA TEMPERATURA */

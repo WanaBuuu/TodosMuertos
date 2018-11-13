@@ -6,6 +6,7 @@
 package Vista;
 
 import Modelo.Modelo;
+import javax.swing.*;
 
 /**
  *
@@ -14,6 +15,7 @@ import Modelo.Modelo;
 public class Vista extends javax.swing.JFrame {
 
     private Modelo m;
+    private VerResumen vr;
     
     public Vista() {
         initComponents();
@@ -160,13 +162,12 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(86, 86, 86)
-                                .addComponent(ImgHumano))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(165, 165, 165)
-                                .addComponent(ImgDia)))
+                            .addComponent(ImgHumano)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(ImgDia)
+                                .addGap(63, 63, 63)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(374, 374, 374)
@@ -223,36 +224,36 @@ public class Vista extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(salir)
-                        .addContainerGap(66, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap(122, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(431, 431, 431)
                 .addComponent(jLabel1)
-                .addGap(404, 404, 404))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel2)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(156, 156, 156)
+                                        .addGap(225, 225, 225)
                                         .addComponent(nDia))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(158, 158, 158)
+                                        .addGap(227, 227, 227)
                                         .addComponent(nVampiros))
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(35, 35, 35)
+                                        .addComponent(jLabel1)
                                         .addGap(165, 165, 165)
                                         .addComponent(temperatura)))
                                 .addGap(102, 102, 102))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(123, 123, 123)
                                 .addComponent(ImgVampiro, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,15 +268,15 @@ public class Vista extends javax.swing.JFrame {
                                 .addGap(81, 81, 81)
                                 .addComponent(nHumanos))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ImgDia)
-                            .addComponent(ImgTemperatura))
-                        .addGap(94, 94, 94)
+                        .addGap(177, 177, 177)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ImgTemperatura)
+                            .addComponent(ImgDia))
+                        .addGap(90, 90, 90)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ImgHumano)
                             .addComponent(ImgCazaVampiro))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NuevoEntorno)
                     .addComponent(PasarUnDia)
@@ -306,7 +307,11 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_PasarUnDiaActionPerformed
 
     private void VerResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerResumenActionPerformed
-        //ToString
+        this.vr = new VerResumen(m);
+        vr.setVisible(true);
+        
+       
+        
     }//GEN-LAST:event_VerResumenActionPerformed
 
     private void PasarDiezDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasarDiezDiasActionPerformed
@@ -331,7 +336,7 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_InvasionZombieActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-
+        
     }//GEN-LAST:event_salirActionPerformed
 
     

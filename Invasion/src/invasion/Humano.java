@@ -101,4 +101,11 @@ public class Humano extends Seres{
         return this.tengoHijo;
     }
     
+    @Override
+    public String toString(){
+        return  "\n\tFecha de nacimiento: " + this.birth +
+                "\n\tVelocidad del humano: " + this.velocidad +
+                "\n\tHijos que ha tenido: " + this.totalhijos + "\n";
+    }
+    
 }

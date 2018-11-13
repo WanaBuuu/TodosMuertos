@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class Zombie extends Seres{
 
-    private boolean meMuero = false, tengoHijo = false, meTocaMatar = false;
+    private boolean meMuero = false, meTocaMatar = false;
 
     private Modelo model;
     private int birth, nconvertidos, random, probabilidad;
@@ -43,7 +43,6 @@ public class Zombie extends Seres{
         
         if((dia - this.birth) >= 8){ // ME TENGO QUE MORIR
             meMuero = true;
-            //listaTuTipo.remove(this); // HAY QUE MIRAR ESTO NO SE SI ESTO DE BERDAD BORRA DE VDD LO QUE QUIERO
             this.meMuero = true;
         }
         
@@ -61,5 +60,10 @@ public class Zombie extends Seres{
         this.probabilidad = probabilidad;
     }
 
+    @Override
+    public String toString(){
+        return  "\n\tFecha de nacimiento: " + this.birth +
+                "\n\tNumero de humanos convertidos: " + this.nconvertidos + "\n";
+    }
     
 }

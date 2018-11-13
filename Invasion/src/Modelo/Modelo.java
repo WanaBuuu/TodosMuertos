@@ -110,8 +110,30 @@ public class Modelo {
         this.calcularTemperatura();
         
         //Comer
+        
+        for(int i = 0; i < zombies.size(); i++){
+            if(zombies.get(i).MeTocaConvertir()){
+                //Coger el mas lento para matarlo
+            }
+        }
+        
         //Reproducir
         //Morir
+    }
+    
+    public Object masLento(){
+        
+        float mash, masv;
+        
+        for(int i = 0; i < humanos.size();i++){
+            mash = humanos.get(i).
+        }
+        
+        for(int i = 0; i < vampiros.size();i++){
+            
+        }
+        
+        return null;
     }
     
     public void pasarDiezDias(){

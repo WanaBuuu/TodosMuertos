@@ -52,8 +52,10 @@ public class Vista extends javax.swing.JFrame {
         nZombies = new javax.swing.JLabel();
         nHumanos = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 102));
 
         NuevoEntorno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         NuevoEntorno.setText("NUEVO ENTORNO");
@@ -152,6 +154,8 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("jLabel4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -223,11 +227,15 @@ public class Vista extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(salir)
-                        .addContainerGap(66, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(404, 404, 404))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +273,9 @@ public class Vista extends javax.swing.JFrame {
                                 .addGap(75, 75, 75)
                                 .addComponent(nZombies))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel4)
+                        .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ImgDia)
                             .addComponent(ImgTemperatura))
@@ -273,7 +283,7 @@ public class Vista extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ImgHumano)
                             .addComponent(ImgCazaVampiro))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NuevoEntorno)
                     .addComponent(PasarUnDia)
@@ -293,37 +303,37 @@ public class Vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NuevoEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoEntornoActionPerformed
-        this.m.crearEntorno();
-        System.out.println("Entorno creado");
-    }//GEN-LAST:event_NuevoEntornoActionPerformed
+    private void CalentamientoGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalentamientoGlobalActionPerformed
+        this.m.calentamientoGlobal();
+    }//GEN-LAST:event_CalentamientoGlobalActionPerformed
 
     private void PasarUnDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasarUnDiaActionPerformed
         this.m.nextDay();
     }//GEN-LAST:event_PasarUnDiaActionPerformed
 
     private void VerResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerResumenActionPerformed
-        
+
     }//GEN-LAST:event_VerResumenActionPerformed
 
-    private void EnfriamientoGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnfriamientoGlobalActionPerformed
-       this.m.enfriamientoGlobal();
-    }//GEN-LAST:event_EnfriamientoGlobalActionPerformed
-
     private void PasarDiezDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasarDiezDiasActionPerformed
-       this.m.pasarDiezDias();
+        this.m.pasarDiezDias();
     }//GEN-LAST:event_PasarDiezDiasActionPerformed
 
-    private void CalentamientoGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalentamientoGlobalActionPerformed
-       this.m.calentamientoGlobal();
-    }//GEN-LAST:event_CalentamientoGlobalActionPerformed
+    private void NuevoEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoEntornoActionPerformed
+        this.m.crearEntorno();
+        System.out.println("Entorno creado");
+    }//GEN-LAST:event_NuevoEntornoActionPerformed
+
+    private void EnfriamientoGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnfriamientoGlobalActionPerformed
+        this.m.enfriamientoGlobal();
+    }//GEN-LAST:event_EnfriamientoGlobalActionPerformed
 
     private void InvasionZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvasionZombieActionPerformed
         this.m.invasionZombie();
     }//GEN-LAST:event_InvasionZombieActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        
+
     }//GEN-LAST:event_salirActionPerformed
 
     /**
@@ -377,6 +387,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton VerResumen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel nCazavampiros;
     private javax.swing.JLabel nDia;
     private javax.swing.JLabel nHumanos;

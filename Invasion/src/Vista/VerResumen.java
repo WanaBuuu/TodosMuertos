@@ -34,7 +34,7 @@ public class VerResumen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        resum = new javax.swing.JLabel();
+        resum = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,7 +49,8 @@ public class VerResumen extends javax.swing.JFrame {
             }
         });
 
-        resum.setText("jLabel2");
+        resum.setColumns(20);
+        resum.setRows(5);
         jScrollPane1.setViewportView(resum);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,7 +127,7 @@ public class VerResumen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel resum;
+    private javax.swing.JTextArea resum;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

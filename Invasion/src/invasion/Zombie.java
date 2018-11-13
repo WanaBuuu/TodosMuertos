@@ -16,10 +16,10 @@ import java.util.Random;
 public class Zombie extends Seres implements Serializable{
 
     private boolean meMuero = false, meTocaMatar = false;
-
-    private Modelo model;
     private int birth, nconvertidos, random, probabilidad;
-
+    private static final long serialVersionUID = 8799656478674716638L;
+    
+    private Modelo model;
     
     public Zombie(int birth, Modelo model){
         this.birth = birth;

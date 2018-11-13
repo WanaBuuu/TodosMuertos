@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author nere1
  */
 public class CazaVampiro extends Humano implements Serializable{
-    
+    private static final long serialVersionUID = 8799656478674716636L;
     private boolean meMuero = false, tengoHijo = false ;
     private int nmata = 0;
 

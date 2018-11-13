@@ -16,6 +16,7 @@ public class Vampiro extends Seres implements Serializable{
 
     private boolean meMuero = false, convierto, matoHumano;
     private int nmata = 0, nconvierte = 0, birth, random, tengoQueComer = -50;
+    private static final long serialVersionUID = 8799656478674716631L;
     
     public Vampiro(int birth){
         this.birth = birth;
@@ -24,7 +25,7 @@ public class Vampiro extends Seres implements Serializable{
     public boolean tengoQueComer(boolean quedanHumanos){
         
         boolean meTocaComer = false;
-        this.convierto = false;  // Para inicializar y que nose quede en true
+        this.convierto = false;  // Para inicializar y que no se quede en true
         this.matoHumano = false;
         
         this.random = this.calcularRandom(1, 100); // ¿me toca comer?

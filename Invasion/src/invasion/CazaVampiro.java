@@ -5,11 +5,13 @@
  */
 package invasion;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nere1
  */
-public class CazaVampiro extends Humano{
+public class CazaVampiro extends Humano implements Serializable{
     
     private boolean meMuero = false, tengoHijo = false ;
     private int nmata = 0;

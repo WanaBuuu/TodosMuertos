@@ -123,7 +123,6 @@ public class Modelo {
             }
         }
         
-        
         //Convertir Zombies
         Object o = this.masLento();
         

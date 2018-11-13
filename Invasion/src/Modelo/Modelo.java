@@ -119,19 +119,28 @@ public class Modelo {
     }
     
     public void quienMuere(){
-        //A LO MEJOR SE PUEDE SIMPLIFICAR
-        for(int i = 0; i < humanos.size(); i++){
+        //Humanos
+        for(int i = 0; i < this.humanos.size(); i++){
             
-            if(humanos.get(i).meMuero())
-                humanos.remove(i);
+            if(this.humanos.get(i).meMuero())
+                this.humanos.remove(i);
         }
         
-        for(int i = 0; i < cazaVampiros.size(); i++){
+        //CazaVampiros
+        for(int i = 0; i < this.cazaVampiros.size(); i++){
             
-            if(cazaVampiros.get(i).meMuero())
-                cazaVampiros.remove(i);
+            if(this.cazaVampiros.get(i).meMuero())
+                this.cazaVampiros.remove(i);
         }
         
+        //Vampiros
+        for(int i = 0; i < this.vampiros.size(); i++){
+            
+            if(vampiros.get(i).meMuero())
+                vampiros.remove(i);
+        }
+        
+        //Zombies
         for(int i = 0; i < zombies.size(); i++){
             
             if(zombies.get(i).meMuero())
@@ -153,7 +162,7 @@ public class Modelo {
         }
         
         //CazaVampiros
-        for(int x = 0; x < this.ncazaVampiros; x++){
+        for(int i = 0; i < this.ncazaVampiros; i++){
             
             tempveloc = this.calcularRandom(60, 100);
             
@@ -162,14 +171,14 @@ public class Modelo {
         }
         
         //Vampiros
-        for(int j = 0; j < this.nvampiros; j++){
+        for(int i = 0; i < this.nvampiros; i++){
             
             Vampiro vampiro = new Vampiro(this.ndia);
             vampiros.add(vampiro);
         }
                 
         //Zombies
-        for(int y = 0; y < this.nzombies; y++){
+        for(int i = 0; i < this.nzombies; i++){
             
             Zombie zombie = new Zombie(this.ndia);
             zombies.add(zombie);

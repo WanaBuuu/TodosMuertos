@@ -18,7 +18,7 @@ public class CazaVampiro extends Humano{
         super(birth, velocidad);
     }
 
-   public boolean MmeTocaMatarVampiro(){
+   public boolean meTocaMatarVampiro(){
        boolean matar = false;
        int random;
        

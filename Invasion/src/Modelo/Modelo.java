@@ -30,6 +30,8 @@ public class Modelo {
     private boolean cambioGlobal = false;
     
     private Vampiro v;
+    private Humano h;
+    private CazaVampiro cv;
    
     
     
@@ -111,6 +113,17 @@ public class Modelo {
         /** CALCULAMOS LA NUEVA TEMPERATURA */
         this.calcularTemperatura();
         
+        //Cazar Cazavampiros
+        int idvamp = 0;
+        
+        for(int i = 0; i < this.cazaVampiros.size(); i++){
+            if(this.cazaVampiros.get(i).meTocaMatarVampiro()){
+                idvamp = this.calcularRandom(0, this.vampiros.size()-1);
+                this.vampiros.remove(idvamp);
+            }
+        }
+        
+        
         //Convertir Zombies
         Object o = this.masLento();
         
@@ -131,7 +144,7 @@ public class Modelo {
         for(int i = 0; i < this.vampiros.size(); i++){
             if(this.vampiros.get(i).tengoQueComer(this.humanos.isEmpty())){
                 
-                idhum = this.calcularRandom(0, this.humanos.size());
+                idhum = this.calcularRandom(0, this.humanos.size()-1);
                 
                 if(this.vampiros.get(i).getMatoHumano()){
                     //Matar a un humano
@@ -145,8 +158,38 @@ public class Modelo {
             }
         }
         
-        //Reproducir
-        //Morir
+        //Reproducir Humanos
+        int numhijos = 0;
+        
+        for(int i = 0; i < this.humanos.size(); i++){
+            
+            if(this.humanos.get(i).tengoHijo(this.temperatura)){
+                numhijos = this.humanos.get(i).getNhijos();
+                
+                for(int j = 0; j < numhijos; j++){
+                    h = new Humano(this.ndia, this.humanos.get(i).getVelocidad());
+                    this.humanos.add(h);
+                }
+            }
+        }
+        
+        //Reproducir CazaVampiros
+        numhijos = 0;
+        
+        for(int i = 0; i < this.cazaVampiros.size(); i++){
+            
+            if(this.cazaVampiros.get(i).tengoHijo(this.temperatura)){
+                numhijos = this.cazaVampiros.get(i).getNhijos();
+                
+                for(int j = 0; j < numhijos; j++){
+                    cv = new CazaVampiro(this.ndia, this.cazaVampiros.get(i).getVelocidad());
+                    this.cazaVampiros.add(cv);
+                }
+            }
+        }
+        
+        //Morir todos
+        this.quienMuere();
     }
     
     public Object masLento(){

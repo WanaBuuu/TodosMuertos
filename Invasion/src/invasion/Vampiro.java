@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class Vampiro extends Seres{
 
-    private boolean meMuero = false, tengoHijo = false;
+    private boolean meMuero = false, convierto, matoHumano;
     private int nmata = 0, birth, random, tengoQueComer = -50;
     
     public Vampiro(int birth){
@@ -23,6 +23,8 @@ public class Vampiro extends Seres{
     public boolean tengoQueComer(boolean quedanHumanos){
         
         boolean meTocaComer = false;
+        this.convierto = false;  // Para inicializar y que nose quede en true
+        this.matoHumano = false;
         
         this.random = this.calcularRandom(1, 100); // ¿me toca comer?
         
@@ -33,11 +35,12 @@ public class Vampiro extends Seres{
             else{
                 this.random = this.calcularRandom(1, 100); // voy a ver si tengo que matarlo o si lo voy a tranformar 
                 if (this.random >= 50){ // HUMANO MUERE
-                    
+                    this.matoHumano = true;
                     this.nmata++; // contamos aqui ya que mato un humano
                 }
                 else{
                     //Convierto a humano en vampiro
+                    this.convierto = true;
                 }
                     
             }

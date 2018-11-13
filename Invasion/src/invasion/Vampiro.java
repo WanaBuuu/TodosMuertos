@@ -5,7 +5,6 @@
  */
 package invasion;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -21,7 +20,7 @@ public class Vampiro extends Seres{
         this.birth = birth;
     }
 
-    public boolean tengoQueComer(int birth, boolean quedanHumanos){
+    public boolean tengoQueComer(boolean quedanHumanos){
         
         boolean meTocaComer = false;
         
@@ -37,6 +36,10 @@ public class Vampiro extends Seres{
                     
                     this.nmata++; // contamos aqui ya que mato un humano
                 }
+                else{
+                    //Convierto a humano en vampiro
+                }
+                    
             }
         }
         else{

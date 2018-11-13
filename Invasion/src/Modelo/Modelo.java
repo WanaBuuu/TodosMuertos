@@ -108,6 +108,10 @@ public class Modelo {
         
         /** CALCULAMOS LA NUEVA TEMPERATURA */
         this.calcularTemperatura();
+        
+        //Comer
+        //Reproducir
+        //Morir
     }
     
     public void pasarDiezDias(){

@@ -3,3 +3,4 @@
 *.mf
 Invasion/nbproject/genfiles.properties
 Invasion/nbproject/project.properties
+/Invasion/build/

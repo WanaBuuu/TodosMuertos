@@ -5,17 +5,20 @@
  */
 package Vista;
 
+import Modelo.Modelo;
+
 /**
  *
  * @author nere1
  */
 public class Vista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vista
-     */
+    private Modelo m;
+    
     public Vista() {
         initComponents();
+        
+        m = new Modelo();        
     }
 
     /**
@@ -27,9 +30,9 @@ public class Vista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        NuevoEvento = new javax.swing.JButton();
+        NuevoEntorno = new javax.swing.JButton();
         PasarUnDia = new javax.swing.JButton();
-        PasraDiezDias = new javax.swing.JButton();
+        PasarDiezDias = new javax.swing.JButton();
         VerResumen = new javax.swing.JButton();
         CalentamientoGlobal = new javax.swing.JButton();
         EnfriamientoGlobal = new javax.swing.JButton();
@@ -48,14 +51,15 @@ public class Vista extends javax.swing.JFrame {
         nVampiros = new javax.swing.JLabel();
         nZombies = new javax.swing.JLabel();
         nHumanos = new javax.swing.JLabel();
+        salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        NuevoEvento.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        NuevoEvento.setText("NUEVO ENTORNO");
-        NuevoEvento.addActionListener(new java.awt.event.ActionListener() {
+        NuevoEntorno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        NuevoEntorno.setText("NUEVO ENTORNO");
+        NuevoEntorno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NuevoEventoActionPerformed(evt);
+                NuevoEntornoActionPerformed(evt);
             }
         });
 
@@ -67,8 +71,13 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
-        PasraDiezDias.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        PasraDiezDias.setText("PASAR 10 DIAS");
+        PasarDiezDias.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        PasarDiezDias.setText("PASAR 10 DIAS");
+        PasarDiezDias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasarDiezDiasActionPerformed(evt);
+            }
+        });
 
         VerResumen.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         VerResumen.setText("VER RESUMEN");
@@ -80,6 +89,11 @@ public class Vista extends javax.swing.JFrame {
 
         CalentamientoGlobal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CalentamientoGlobal.setText("CALENTAMIENTO GLOBAL");
+        CalentamientoGlobal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalentamientoGlobalActionPerformed(evt);
+            }
+        });
 
         EnfriamientoGlobal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         EnfriamientoGlobal.setText("ENFRIAMIENTO GLOBAL");
@@ -91,6 +105,11 @@ public class Vista extends javax.swing.JFrame {
 
         InvasionZombie.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         InvasionZombie.setText("INVASION DE ZOMBIES");
+        InvasionZombie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InvasionZombieActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Goudy Stout", 0, 24)); // NOI18N
         jLabel1.setText("SIMULADOR INVASIÓN");
@@ -125,15 +144,20 @@ public class Vista extends javax.swing.JFrame {
         nHumanos.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         nHumanos.setText("0");
 
+        salir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(1042, 1042, 1042)
-                        .addComponent(ImgZombie))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -152,43 +176,54 @@ public class Vista extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(nDia)
                                     .addComponent(nHumanos))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(ImgTemperatura)
-                                                .addGap(103, 103, 103))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(ImgCazaVampiro)
-                                                .addGap(62, 62, 62)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(temperatura)
-                                                .addGap(83, 83, 83)
-                                                .addComponent(ImgVampiro))
-                                            .addComponent(nCazavampiros)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(PasraDiezDias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(CalentamientoGlobal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(VerResumen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(PasarUnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(CalentamientoGlobal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(VerResumen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGap(148, 148, 148)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(InvasionZombie, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(PasarDiezDias, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(5, 5, 5))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(InvasionZombie, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                            .addComponent(PasarUnDia, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                                                .addComponent(ImgCazaVampiro)
+                                                .addGap(33, 33, 33))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(170, 170, 170)
+                                                .addComponent(ImgTemperatura)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGap(61, 61, 61)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(temperatura)
+                                            .addComponent(nCazavampiros))
+                                        .addGap(57, 57, 57)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ImgZombie)
+                                            .addComponent(ImgVampiro))
+                                        .addGap(62, 62, 62))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(116, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(EnfriamientoGlobal)
-                            .addComponent(NuevoEvento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NuevoEntorno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(805, 805, 805)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nVampiros)
-                    .addComponent(nZombies))
-                .addGap(0, 167, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nVampiros)
+                            .addComponent(nZombies))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(salir)
+                        .addContainerGap(66, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -201,51 +236,52 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ImgDia)
-                                    .addComponent(ImgTemperatura)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(156, 156, 156)
+                                        .addComponent(nDia))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(158, 158, 158)
+                                        .addComponent(nVampiros))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(165, 165, 165)
+                                        .addComponent(temperatura)))
+                                .addGap(102, 102, 102))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(temperatura)
-                                .addGap(47, 47, 47)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(ImgHumano))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(nCazavampiros)
-                                .addGap(134, 134, 134))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ImgVampiro, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(nDia))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addComponent(nVampiros)))
-                        .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ImgVampiro, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ImgZombie)
-                            .addComponent(ImgCazaVampiro)
+                            .addComponent(nHumanos)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(nZombies)
-                                .addGap(127, 127, 127))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(nHumanos)
-                                .addGap(113, 113, 113)))))
+                                .addComponent(nCazavampiros)
+                                .addGap(102, 102, 102))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(75, 75, 75)
+                                .addComponent(nZombies))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ImgDia)
+                            .addComponent(ImgTemperatura))
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ImgHumano)
+                            .addComponent(ImgCazaVampiro))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PasraDiezDias)
-                    .addComponent(NuevoEvento)
-                    .addComponent(PasarUnDia))
+                    .addComponent(NuevoEntorno)
+                    .addComponent(PasarUnDia)
+                    .addComponent(PasarDiezDias))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(VerResumen)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(VerResumen)
+                    .addComponent(salir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EnfriamientoGlobal)
@@ -257,21 +293,38 @@ public class Vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NuevoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoEventoActionPerformed
-        
-    }//GEN-LAST:event_NuevoEventoActionPerformed
+    private void NuevoEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoEntornoActionPerformed
+        this.m.crearEntorno();
+        System.out.println("Entorno creado");
+    }//GEN-LAST:event_NuevoEntornoActionPerformed
 
     private void PasarUnDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasarUnDiaActionPerformed
-        // TODO add your handling code here:
+        this.m.nextDay();
     }//GEN-LAST:event_PasarUnDiaActionPerformed
 
     private void VerResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerResumenActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_VerResumenActionPerformed
 
     private void EnfriamientoGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnfriamientoGlobalActionPerformed
-        // TODO add your handling code here:
+       this.m.enfriamientoGlobal();
     }//GEN-LAST:event_EnfriamientoGlobalActionPerformed
+
+    private void PasarDiezDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasarDiezDiasActionPerformed
+       this.m.pasarDiezDias();
+    }//GEN-LAST:event_PasarDiezDiasActionPerformed
+
+    private void CalentamientoGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalentamientoGlobalActionPerformed
+       this.m.calentamientoGlobal();
+    }//GEN-LAST:event_CalentamientoGlobalActionPerformed
+
+    private void InvasionZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvasionZombieActionPerformed
+        this.m.invasionZombie();
+    }//GEN-LAST:event_InvasionZombieActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        
+    }//GEN-LAST:event_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,9 +371,9 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel ImgVampiro;
     private javax.swing.JLabel ImgZombie;
     private javax.swing.JButton InvasionZombie;
-    private javax.swing.JButton NuevoEvento;
+    private javax.swing.JButton NuevoEntorno;
+    private javax.swing.JButton PasarDiezDias;
     private javax.swing.JButton PasarUnDia;
-    private javax.swing.JButton PasraDiezDias;
     private javax.swing.JButton VerResumen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -329,6 +382,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel nHumanos;
     private javax.swing.JLabel nVampiros;
     private javax.swing.JLabel nZombies;
+    private javax.swing.JButton salir;
     private javax.swing.JLabel temperatura;
     // End of variables declaration//GEN-END:variables
 }

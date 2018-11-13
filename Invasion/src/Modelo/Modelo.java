@@ -19,15 +19,12 @@ import java.util.Random;
 public class Modelo {
     private int nhumanos, ncazaVampiros, nzombies, nvampiros, ndia;
 
-    
     private float  temperatura;
             
     private ArrayList <Humano> humanos;
     private ArrayList <CazaVampiro> cazaVampiros;
     private ArrayList <Vampiro> vampiros;
     private ArrayList <Zombie> zombies;
-    
-    private boolean cambioGlobal = false;
     
     private Vampiro v;
     private Humano h;
@@ -45,6 +42,11 @@ public class Modelo {
         
         //TODO ESTO LO HE CAMBIADO A CREARENTORNO PORQUE SINO SERIAN SIEMPRE LOS MISMOS NUMEROS DE SERES Y SE CREARIAN CUANDO
         //CREAMOS EL MODELO, Y DEBERIA HACERSE CUANDO EMPEZAMOS LA SIMULACION
+        
+        this.humanos = new ArrayList();
+        this.cazaVampiros = new ArrayList();
+        this.vampiros = new ArrayList();
+        this.zombies = new ArrayList();
     }
     
     public void crearEntorno(){
@@ -73,7 +75,6 @@ public class Modelo {
     */
     public void calentamientoGlobal(){
         this.temperatura += 10;
-        this.cambioGlobal = true;
     }
     
     /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
@@ -82,7 +83,6 @@ public class Modelo {
     */
     public void enfriamientoGlobal(){
         this.temperatura -= 10;
-        this.cambioGlobal = true;
     }
     
     /**
@@ -103,11 +103,6 @@ public class Modelo {
     }
     
     public void nextDay(){
-        if (cambioGlobal){
-            this.temperatura = 22;
-            this.cambioGlobal = false;
-        }
-        
         this.ndia++;
         
         /** CALCULAMOS LA NUEVA TEMPERATURA */
@@ -297,7 +292,7 @@ public class Modelo {
             tempveloc = this.calcularRandom(60, 100);
             
             Humano humano = new Humano(this.ndia, tempveloc);
-            humanos.add(humano);
+            this.humanos.add(humano);
         }
         
         //CazaVampiros

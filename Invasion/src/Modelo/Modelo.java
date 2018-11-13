@@ -28,6 +28,8 @@ public class Modelo {
     private ArrayList <Zombie> zombies;
     
     private boolean cambioGlobal = false;
+    
+    private Vampiro v;
    
     
     
@@ -109,11 +111,37 @@ public class Modelo {
         /** CALCULAMOS LA NUEVA TEMPERATURA */
         this.calcularTemperatura();
         
-        //Comer
+        //Convertir Zombies
+        Object o = this.masLento();
         
-        for(int i = 0; i < zombies.size(); i++){
-            if(zombies.get(i).MeTocaConvertir()){
-                //Coger el mas lento para matarlo
+        for(int i = 0; i < this.zombies.size(); i++){
+            if(this.zombies.get(i).MeTocaConvertir()){
+                if(o instanceof Humano){
+                    this.humanos.remove(o);
+                }
+                else{
+                    this.cazaVampiros.remove(o);
+                }
+            }
+        }
+        
+        //Comer Vampiros
+        int idhum;
+        
+        for(int i = 0; i < this.vampiros.size(); i++){
+            if(this.vampiros.get(i).tengoQueComer(this.humanos.isEmpty())){
+                
+                idhum = this.calcularRandom(0, this.humanos.size());
+                
+                if(this.vampiros.get(i).getMatoHumano()){
+                    //Matar a un humano
+                    this.humanos.remove(idhum);
+                }
+                else{
+                    //Convertir a humano en vampiro
+                    this.humanos.remove(idhum);
+                    this.vampiros.add(v = new Vampiro(this.ndia));
+                }
             }
         }
         
@@ -123,17 +151,36 @@ public class Modelo {
     
     public Object masLento(){
         
-        float mash, masv;
+        int mash = 0, masv = 0;
+        Object h = new Object();
+        Object v = new Object();
         
         for(int i = 0; i < humanos.size();i++){
-            mash = humanos.get(i).
+            
+            mash = humanos.get(i).getVelocidad();
+            
+            if(humanos.get(i).getVelocidad() < mash){
+                mash = humanos.get(i).getVelocidad();
+                h = humanos.get(i);
+                      
+            }
         }
         
-        for(int i = 0; i < vampiros.size();i++){
+        for(int i = 0; i < cazaVampiros.size();i++){
+            masv = cazaVampiros.get(i).getVelocidad();
+            
+            if(cazaVampiros.get(i).getVelocidad() < masv){
+                masv = cazaVampiros.get(i).getVelocidad();
+                v = cazaVampiros.get(i);
+            }
             
         }
         
-        return null;
+        if(mash > masv)
+            return v;
+        else
+            return h;
+            
     }
     
     public void pasarDiezDias(){

@@ -53,6 +53,16 @@ public class Vampiro extends Seres{
        return meTocaComer;
     }
 
+    public boolean getConvierto() {
+        return convierto;
+    }
+
+    public boolean getMatoHumano() {
+        return matoHumano;
+    }
+    
+    
+
     @Override
     public int calcularRandom(int desde, int hasta) {
         Random aleatorio = new Random(System.currentTimeMillis());

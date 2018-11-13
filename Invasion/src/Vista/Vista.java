@@ -55,7 +55,6 @@ public class Vista extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 0, 0));
-        setResizable(false);
 
         NuevoEntorno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         NuevoEntorno.setText("NUEVO ENTORNO");
@@ -199,8 +198,7 @@ public class Vista extends javax.swing.JFrame {
                                                 .addGap(33, 33, 33))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(170, 170, 170)
-                                                .addComponent(ImgTemperatura)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                .addComponent(ImgTemperatura)))
                                         .addGap(61, 61, 61)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(temperatura)
@@ -299,37 +297,53 @@ public class Vista extends javax.swing.JFrame {
 
     private void CalentamientoGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalentamientoGlobalActionPerformed
         this.m.calentamientoGlobal();
+        this.updateTag();
     }//GEN-LAST:event_CalentamientoGlobalActionPerformed
 
     private void PasarUnDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasarUnDiaActionPerformed
         this.m.nextDay();
+        this.updateTag();
     }//GEN-LAST:event_PasarUnDiaActionPerformed
 
     private void VerResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerResumenActionPerformed
-
+        //ToString
     }//GEN-LAST:event_VerResumenActionPerformed
 
     private void PasarDiezDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasarDiezDiasActionPerformed
         this.m.pasarDiezDias();
+        this.updateTag();
     }//GEN-LAST:event_PasarDiezDiasActionPerformed
 
     private void NuevoEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoEntornoActionPerformed
         this.m.crearEntorno();
         System.out.println("Entorno creado");
+        this.updateTag();
     }//GEN-LAST:event_NuevoEntornoActionPerformed
 
     private void EnfriamientoGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnfriamientoGlobalActionPerformed
         this.m.enfriamientoGlobal();
+        this.updateTag();
     }//GEN-LAST:event_EnfriamientoGlobalActionPerformed
 
     private void InvasionZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvasionZombieActionPerformed
         this.m.invasionZombie();
+        this.updateTag();
     }//GEN-LAST:event_InvasionZombieActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
 
     }//GEN-LAST:event_salirActionPerformed
 
+    
+    private void updateTag(){
+        this.nDia.setText(String.valueOf(this.m.getDia()));
+        this.temperatura.setText(String.valueOf(this.m.getTemperatura()));
+        this.nHumanos.setText(String.valueOf(this.m.getNhumanos()));
+        this.nCazavampiros.setText(String.valueOf(this.m.getNcazaVampiros()));
+        this.nVampiros.setText(String.valueOf(this.m.getNvampiros()));
+        this.nZombies.setText(String.valueOf(this.m.getNzombies()));
+    }
+    
     /**
      * @param args the command line arguments
      */

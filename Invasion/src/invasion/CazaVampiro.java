@@ -16,6 +16,7 @@ public class CazaVampiro extends Humano{
 
     public CazaVampiro(int birth, int velocidad) {
         super(birth, velocidad);
+        
     }
 
    public boolean meTocaMatarVampiro(){
@@ -31,4 +32,5 @@ public class CazaVampiro extends Humano{
        
        return matar;
    }
+   
 }

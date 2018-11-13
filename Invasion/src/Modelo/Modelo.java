@@ -108,17 +108,21 @@ public class Modelo {
         /** CALCULAMOS LA NUEVA TEMPERATURA */
         this.calcularTemperatura();
         
-        //Cazar Cazavampiros
+        //Cazar Cazavampiros saber si le toca matar
         int idvamp = 0;
         
         for(int i = 0; i < this.cazaVampiros.size(); i++){
             if(this.cazaVampiros.get(i).meTocaMatarVampiro()){
-                idvamp = this.calcularRandom(0, this.vampiros.size()-1);
-                this.vampiros.remove(idvamp);
+                if(!this.vampiros.isEmpty()){
+                    idvamp = this.calcularRandom(0, (this.vampiros.size()-1));
+                    this.vampiros.remove(idvamp);
+                }
+                else
+                    System.out.println("No hay vampiros");
             }
         }
         
-        //Convertir Zombies
+        //Convertir Zombies saber si le toca convertir
         Object o = this.masLento();
         
         for(int i = 0; i < this.zombies.size(); i++){
@@ -132,27 +136,30 @@ public class Modelo {
             }
         }
         
-        //Comer Vampiros
+        //Comer Vampiros saber si le toca comer
         int idhum;
         
         for(int i = 0; i < this.vampiros.size(); i++){
             if(this.vampiros.get(i).tengoQueComer(this.humanos.isEmpty())){
                 
-                idhum = this.calcularRandom(0, this.humanos.size()-1);
+                if(!this.humanos.isEmpty()){
+                    idhum = this.calcularRandom(0, this.humanos.size()-1);
                 
-                if(this.vampiros.get(i).getMatoHumano()){
-                    //Matar a un humano
-                    this.humanos.remove(idhum);
+                    if(this.vampiros.get(i).getMatoHumano()){
+                        //Matar a un humano
+                        this.humanos.remove(idhum);
+                    }
+                    else{
+                        //Convertir a humano en vampiro
+                        this.humanos.remove(idhum);
+                        this.vampiros.add(v = new Vampiro(this.ndia));
+                    }
                 }
-                else{
-                    //Convertir a humano en vampiro
-                    this.humanos.remove(idhum);
-                    this.vampiros.add(v = new Vampiro(this.ndia));
-                }
+                
             }
         }
         
-        //Reproducir Humanos
+        //Reproducir Humanos saber si va a tener hijos
         int numhijos = 0;
         
         for(int i = 0; i < this.humanos.size(); i++){
@@ -167,17 +174,18 @@ public class Modelo {
             }
         }
         
-        //Reproducir CazaVampiros
+        //Reproducir CazaVampiros saber si va a tener
         numhijos = 0;
         
         for(int i = 0; i < this.cazaVampiros.size(); i++){
-            
+            System.out.println("estoy reproduciendome " + numhijos);
             if(this.cazaVampiros.get(i).tengoHijo(this.temperatura)){
                 numhijos = this.cazaVampiros.get(i).getNhijos();
-                
+                System.out.println("estoy reproduciendome " + numhijos);
                 for(int j = 0; j < numhijos; j++){
                     cv = new CazaVampiro(this.ndia, this.cazaVampiros.get(i).getVelocidad());
                     this.cazaVampiros.add(cv);
+                     System.out.println("estoy reproduciendome " + numhijos);
                 }
             }
         }
@@ -313,7 +321,7 @@ public class Modelo {
         //Zombies
         for(int i = 0; i < this.nzombies; i++){
             
-            Zombie zombie = new Zombie(this.ndia);
+            Zombie zombie = new Zombie(this.ndia, this);
             zombies.add(zombie);
         }
                 
@@ -335,9 +343,11 @@ public class Modelo {
         return this.vampiros.size();
     }
 
-    public int getNdia() {
-        return ndia;
+    public float getTemperatura() {
+        return temperatura;
     }
+
+    
     
 }
 

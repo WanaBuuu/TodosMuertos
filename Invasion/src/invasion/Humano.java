@@ -13,10 +13,10 @@ import java.util.Random;
  */
 public class Humano extends Seres{
     
-    private boolean meMuero = false, tengoHijo = false;
+    protected boolean meMuero = false, tengoHijo = false;
     
     //nhijos es el numero de hijos que tiene el humano
-    private int birth, nhijos, totalhijos, velocidad;
+    protected int birth, nhijos, totalhijos, velocidad;
     
     public Humano() {
        
@@ -75,6 +75,7 @@ public class Humano extends Seres{
         
         int prob, aux, aux2;
         
+        this.tengoHijo = false;
         aux = this.calcularRandom(0, 100);
         
         if(temperatura >= 22){

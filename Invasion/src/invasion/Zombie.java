@@ -20,9 +20,10 @@ public class Zombie extends Seres{
     private int birth, nconvertidos, random, probabilidad;
 
     
-    public Zombie(int birth){
+    public Zombie(int birth, Modelo model){
         this.birth = birth;
         this.probabilidad = 10;
+        this.model = model;
     }
 
     public boolean MeTocaConvertir (){

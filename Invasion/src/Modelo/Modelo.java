@@ -37,10 +37,12 @@ public class Modelo implements Serializable{
     private Humano h;
     private CazaVampiro cv;
    
+    
+    //   D:\\RepositoriosCodigo\\Practica3\\TodosMuertos\\Invasion\\file.bin
     private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
     
-    private ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero));
-    private ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
+    //private ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero));
+    //private ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
     
     /**De cada humano nos interesa almacenar y conocer en el programa el día de nacimiento y la
     velocidad al correr (que tiene una medida de 60 a 100).

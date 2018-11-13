@@ -1,4 +1,5 @@
 /*
+/**
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -11,6 +12,7 @@ import invasion.Vampiro;
 import invasion.Zombie;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -40,15 +42,6 @@ public class Modelo implements Serializable{
     
     //   D:\\RepositoriosCodigo\\Practica3\\TodosMuertos\\Invasion\\file.bin
     private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
-    
-    //private ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero));
-    //private ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
-    
-    /**De cada humano nos interesa almacenar y conocer en el programa el día de nacimiento y la
-    velocidad al correr (que tiene una medida de 60 a 100).
-    ◦ La velocidad será asignada a cada humano en el rango 60-100 al crearse el entorno.
-    Después, las velocidad se hereda, es decir, cuando un humano tiene descendencia, sus hijos
-    tienen su misma velocidad.*/
     
     public Modelo (){
         
@@ -426,17 +419,58 @@ public class Modelo implements Serializable{
 
     //SERIALIZABLE
     
-    
-    private void readObject(java.io.ObjectInputStream stream){
-       // Aqui debemos leer los bytes de stream y reconstruir el objeto
+    private void escribirFich(java.io.ObjectOutputStream oos) throws FileNotFoundException, IOException{
+        
+        oos = new ObjectOutputStream(new FileOutputStream(fichero));
+        
+        for (int i = 0; i < this.humanos.size(); i++)
+        {
+            oos.writeObject(this.humanos.get(i));
+        }
+        
+        for (int i = 0; i < this.cazaVampiros.size(); i++)
+        {
+            oos.writeObject(this.cazaVampiros.get(i));
+        }
+        
+        for (int i = 0; i < this.vampiros.size(); i++)
+        {
+            oos.writeObject(this.vampiros.get(i));
+        }
+        
+        for (int i = 0; i < this.zombies.size(); i++)
+        {
+            oos.writeObject(this.zombies.get(i));
+        }
+        
+        oos.close();
     }
+    
+    private void leerFich(java.io.ObjectInputStream ois) throws FileNotFoundException, IOException, ClassNotFoundException{
+        
+        ois = new ObjectInputStream(new FileInputStream(fichero));
+        
+        // Se lee el primer objeto
+        Object aux = ois.readObject();
 
-    private void writeObject(java.io.ObjectOutputStream stream){
-       // Aquí escribimos en stream los bytes que queramos que se envien por red.
-        this.escribirFich();
-    }
-    
-    private void escribirFich(){
+        // Mientras haya objetos
+        while (aux!=null)
+        {
+            if (aux instanceof Humano)
+                this.humanos.add((Humano) aux);
+            
+            if (aux instanceof CazaVampiro)
+                this.cazaVampiros.add((CazaVampiro) aux);
+            
+            if (aux instanceof Vampiro)
+                this.vampiros.add((Vampiro) aux);
+            
+            if (aux instanceof Zombie)
+                this.zombies.add((Zombie) aux);
+            
+            aux = ois.readObject();
+        }
+        ois.close();
         
     }
     

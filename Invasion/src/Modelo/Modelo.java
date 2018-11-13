@@ -9,6 +9,13 @@ import invasion.CazaVampiro;
 import invasion.Humano;
 import invasion.Vampiro;
 import invasion.Zombie;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,7 +23,7 @@ import java.util.Random;
  *
  * @author nere1
  */
-public class Modelo {
+public class Modelo implements Serializable{
     private int nhumanos, ncazaVampiros, nzombies, nvampiros, ndia;
 
     private float  temperatura;
@@ -30,7 +37,10 @@ public class Modelo {
     private Humano h;
     private CazaVampiro cv;
    
+    private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
     
+    private ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero));
+    private ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
     
     /**De cada humano nos interesa almacenar y conocer en el programa el día de nacimiento y la
     velocidad al correr (que tiene una medida de 60 a 100).
@@ -347,7 +357,21 @@ public class Modelo {
         return temperatura;
     }
 
+    //SERIALIZABLE
     
+    
+    private void readObject(java.io.ObjectInputStream stream){
+       // Aqui debemos leer los bytes de stream y reconstruir el objeto
+    }
+
+    private void writeObject(java.io.ObjectOutputStream stream){
+       // Aquí escribimos en stream los bytes que queramos que se envien por red.
+        this.escribirFich();
+    }
+    
+    private void escribirFich(){
+        
+    }
     
 }
 

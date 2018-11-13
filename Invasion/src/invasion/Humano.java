@@ -5,13 +5,14 @@
  */
 package invasion;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author nere1
  */
-public class Humano extends Seres{
+public class Humano extends Seres implements Serializable{
     
     protected boolean meMuero = false, tengoHijo = false;
     
@@ -73,22 +74,25 @@ public class Humano extends Seres{
     
     public boolean tengoHijo(float temperatura) {
         
-        int prob, aux, aux2;
+        int aux, aux2;
         
         this.tengoHijo = false;
-        aux = this.calcularRandom(0, 100);
+        
         
         if(temperatura >= 22){
-            if(aux <= 15)
+            aux = this.calcularRandom(1, 15);
+            if(aux == 1)
                 this.tengoHijo = true;
             
         }
         else if(temperatura < 22 && temperatura > 18){
-            if(aux > 15 && aux <= 45)
+            aux = this.calcularRandom(1, 30);
+            if(aux == 1)
                 this.tengoHijo = true;
         }
         else{
-            if(aux > 50)
+            aux = this.calcularRandom(1, 50);
+            if(aux == 1)
                 this.tengoHijo = true;
         }
         //Si tengo hijos ese dia, calculo cuants tengo entre 1-3 y los sumos a nhijos

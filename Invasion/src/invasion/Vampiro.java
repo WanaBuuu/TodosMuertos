@@ -5,13 +5,14 @@
  */
 package invasion;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author nere1
  */
-public class Vampiro extends Seres{
+public class Vampiro extends Seres implements Serializable{
 
     private boolean meMuero = false, convierto, matoHumano;
     private int nmata = 0, birth, random, tengoQueComer = -50;

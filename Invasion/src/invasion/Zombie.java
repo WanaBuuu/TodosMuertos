@@ -6,13 +6,14 @@
 package invasion;
 
 import Modelo.Modelo;
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author nere1
  */
-public class Zombie extends Seres{
+public class Zombie extends Seres implements Serializable{
 
     private boolean meMuero = false, tengoHijo = false, meTocaMatar = false;
 

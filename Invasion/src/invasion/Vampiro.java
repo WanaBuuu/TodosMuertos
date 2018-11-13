@@ -21,21 +21,30 @@ public class Vampiro extends Seres{
         this.birth = birth;
     }
 
-    public int tengoQueComer(int birth){
+    public boolean tengoQueComer(int birth, boolean quedanHumanos){
+        
+        boolean meTocaComer = false;
+        
         this.random = this.calcularRandom(1, 100); // ¿me toca comer?
         
         if (this.random >= 50){ // TENGO QUE COMEEER
-            this.random = this.calcularRandom(1, 100); // voy a ver si tengo que matarlo o si lo voy a tranformar 
-            if (this.random >= 50){ // HUMANO MUERE
-                this.nmata++; // contamos aqui ya que mato un humano
+            meTocaComer = true;
+            if(!quedanHumanos)
+                this.meMuero = true;
+            else{
+                this.random = this.calcularRandom(1, 100); // voy a ver si tengo que matarlo o si lo voy a tranformar 
+                if (this.random >= 50){ // HUMANO MUERE
+                    
+                    this.nmata++; // contamos aqui ya que mato un humano
                 }
+            }
         }
         else{
-            this.random = -50;   /** para que si no se mete en la condicion podemos saber que es por que no le tocaba comer y podamos diferenciar
+            meTocaComer = false;/** para que si no se mete en la condicion podemos saber que es por que no le tocaba comer y podamos diferenciar
                                      el random de si no toca comer al de si toca tranformar o matar*/
         }
         
-       return this.random;
+       return meTocaComer;
     }
 
     @Override
@@ -47,15 +56,6 @@ public class Vampiro extends Seres{
     
     @Override
     public boolean meMuero() {
-        /**YO CREO QUE EL VAMPIRO NO TIENE QUE TENER EL ARRAYLIST, PORQUE LO VAMOS A GESTIONAR COMO UNA INSTANCIA
-         * POR LO QUE SI SE MUERE, LE QUITARIAMOS DEL ARRAY EN EL MODELO Y NO TIENE SENTIDO QUE SEA LA INSTANCIA
-         * LA QUE LE DEVUELVA EL ARRAY AL MODELO HABIENDOSE BORRADO A SI MISMO DE EL
-         * 
-         * Y TODO ESTO PA QUE SEPAS QUE LO HE QUITADO :)
-         */
-        //listaTuTipo.remove(random);
-        
-        //return listaTuTipo;
-        return true;
+        return meMuero;
     }
 }

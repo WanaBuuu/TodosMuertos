@@ -6,13 +6,19 @@
 package Vista;
 
 import Modelo.Modelo;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
  *
  * @author nere1
  */
-public class Vista extends javax.swing.JFrame {
+public class Vista extends javax.swing.JFrame{
 
     private Modelo m;
     private VerResumen vr;
@@ -332,9 +338,6 @@ public class Vista extends javax.swing.JFrame {
     private void VerResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerResumenActionPerformed
         this.vr = new VerResumen(m);
         vr.setVisible(true);
-        
-       
-        
     }//GEN-LAST:event_VerResumenActionPerformed
 
     private void PasarDiezDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasarDiezDiasActionPerformed
@@ -363,11 +366,24 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        // TODO add your handling code here:
+    ObjectOutputStream oos = null;
+        try {           
+            this.m.escribirFich(oos);
+        } catch (IOException ex) {
+            Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_guardarActionPerformed
 
     private void recuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recuperarActionPerformed
-        // TODO add your handling code here:
+        ObjectInputStream ois = null;
+        
+        try {
+            this.m.leerFich(ois);
+        } catch (IOException ex) {
+            Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_recuperarActionPerformed
 
     

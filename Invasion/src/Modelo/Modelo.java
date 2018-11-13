@@ -39,8 +39,8 @@ public class Modelo implements Serializable{
     private CazaVampiro cv;
    
     
-    //   D:\\RepositoriosCodigo\\Practica3\\TodosMuertos\\Invasion\\file.bin
-    private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
+    //   D:\RepositoriosCodigo\Practica3\TodosMuertos\Invasion\file.bin
+    private File fichero = new File ("D:\\RepositoriosCodigo\\Practica3\\TodosMuertos\\Invasion\\file.bin");
     
     public Modelo (){
         
@@ -418,8 +418,8 @@ public class Modelo implements Serializable{
 
     //SERIALIZABLE
     
-    private void escribirFich(java.io.ObjectOutputStream oos) throws FileNotFoundException, IOException{
-        
+    public void escribirFich( java.io.ObjectOutputStream oos) throws FileNotFoundException, IOException{
+       
         oos = new ObjectOutputStream(new FileOutputStream(fichero));
         
         for (int i = 0; i < this.humanos.size(); i++)
@@ -445,7 +445,7 @@ public class Modelo implements Serializable{
         oos.close();
     }
     
-    private void leerFich(java.io.ObjectInputStream ois) throws FileNotFoundException, IOException, ClassNotFoundException{
+    public void leerFich(java.io.ObjectInputStream ois) throws FileNotFoundException, IOException, ClassNotFoundException{
         
         ois = new ObjectInputStream(new FileInputStream(fichero));
         
@@ -455,6 +455,7 @@ public class Modelo implements Serializable{
         // Mientras haya objetos
         while (aux!=null)
         {
+            System.out.println(aux.toString());
             if (aux instanceof Humano)
                 this.humanos.add((Humano) aux);
             
@@ -470,7 +471,6 @@ public class Modelo implements Serializable{
             aux = ois.readObject();
         }
         ois.close();
-        
     }
     
 }

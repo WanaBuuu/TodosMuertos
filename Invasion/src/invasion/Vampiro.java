@@ -16,6 +16,7 @@ public class Vampiro extends Seres implements Serializable{
 
     private boolean meMuero = false, convierto, matoHumano;
     private int nmata = 0, nconvierte = 0, birth, random, tengoQueComer = -50;
+    private static final long serialVersionUID = 8799656478674716631L;
     
     public Vampiro(int birth){
         this.birth = birth;

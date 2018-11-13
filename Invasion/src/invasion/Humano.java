@@ -13,7 +13,7 @@ import java.util.Random;
  * @author nere1
  */
 public class Humano extends Seres implements Serializable{
-    
+    private static final long serialVersionUID = 8799656478674716633L;
     protected boolean meMuero = false, tengoHijo = false;
     
     //nhijos es el numero de hijos que tiene el humano

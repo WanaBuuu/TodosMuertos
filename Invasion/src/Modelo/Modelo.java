@@ -43,6 +43,23 @@ public class Modelo {
         //CREAMOS EL MODELO, Y DEBERIA HACERSE CUANDO EMPEZAMOS LA SIMULACION
     }
     
+    public void crearEntorno(){
+        
+        /** NUMERO INICIAL DE LOS SERES QUE VA A HABER EN LA SIMULACION*/
+        this.nhumanos = calcularRandom(4000, 6000);
+        this.ncazaVampiros = calcularRandom(10, 15);
+        this.nvampiros = calcularRandom(15, 20);
+        this.nzombies = calcularRandom(20, 30);
+        
+        /** SE ESTABLECE LA TEMPERATURA INICIAL QUE SE TIENE */
+        this.temperatura = 20;
+        
+        this.ndia = 1;
+        
+        //Creamos los seres
+        this.crearSeres();
+    }
+    
     public int getDia() {
         return this.ndia;
     }
@@ -91,6 +108,12 @@ public class Modelo {
         
         /** CALCULAMOS LA NUEVA TEMPERATURA */
         this.calcularTemperatura();
+    }
+    
+    public void pasarDiezDias(){
+        for(int i = 0; i < 10; i++){
+            this.nextDay();
+        }
     }
     
     public void calcularTemperatura(){
@@ -177,22 +200,7 @@ public class Modelo {
                 
     }
     
-    public void crearEntorno(){
-        
-        /** NUMERO INICIAL DE LOS SERES QUE VA A HABER EN LA SIMULACION*/
-        this.nhumanos = calcularRandom(4000, 6000);
-        this.ncazaVampiros = calcularRandom(10, 15);
-        this.nvampiros = calcularRandom(15, 20);
-        this.nzombies = calcularRandom(20, 30);
-        
-        /** SE ESTABLECE LA TEMPERATURA INICIAL QUE SE TIENE */
-        this.temperatura = 20;
-        
-        this.ndia = 1;
-        
-        //Creamos los seres
-        this.crearSeres();
-    }
+   
     
 }
 

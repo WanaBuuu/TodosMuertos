@@ -12,11 +12,23 @@ package invasion;
 public class CazaVampiro extends Humano{
     
     private boolean meMuero = false, tengoHijo = false ;
+    private int nmata = 0;
 
     public CazaVampiro(int birth, int velocidad) {
         super(birth, velocidad);
     }
 
-   
-    
+   public boolean MmeTocaMatarVampiro(){
+       boolean matar = false;
+       int random;
+       
+       random = this.calcularRandom(1, 3);
+       
+       if(random == 1){
+           matar = true;
+           this.nmata ++;
+       }
+       
+       return matar;
+   }
 }

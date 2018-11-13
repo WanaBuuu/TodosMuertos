@@ -15,7 +15,7 @@ import java.util.Random;
 public class Vampiro extends Seres implements Serializable{
 
     private boolean meMuero = false, convierto, matoHumano;
-    private int nmata = 0, birth, random, tengoQueComer = -50;
+    private int nmata = 0, nconvierte = 0, birth, random, tengoQueComer = -50;
     
     public Vampiro(int birth){
         this.birth = birth;
@@ -42,6 +42,7 @@ public class Vampiro extends Seres implements Serializable{
                 else{
                     //Convierto a humano en vampiro
                     this.convierto = true;
+                    this.nconvierte ++;
                 }
                     
             }
@@ -63,6 +64,12 @@ public class Vampiro extends Seres implements Serializable{
     }
     
     
+    @Override
+    public String toString(){
+        return "\n\tFecha de nacimiento: " + this.birth +
+                "\n\tNumero de humanos matados: " + this.nmata +
+                "\n\tNumero de humanos convertidos" + this.nconvierte + "\n";
+    }
 
     @Override
     public int calcularRandom(int desde, int hasta) {

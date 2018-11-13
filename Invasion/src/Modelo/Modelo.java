@@ -26,7 +26,7 @@ import java.util.Random;
  */
 public class Modelo implements Serializable{
     private int nhumanos, ncazaVampiros, nzombies, nvampiros, ndia;
-
+    private boolean catastrofeFrio = false, catastrofeCalor = false, catastrofeZombie = false;
     private float  temperatura;
             
     private ArrayList <Humano> humanos;
@@ -79,6 +79,11 @@ public class Modelo implements Serializable{
     */
     public void calentamientoGlobal(){
         this.temperatura += 10;
+        
+        // si me ponen una calor las otras se tienen que desactivar
+        this.catastrofeCalor = true;
+        this.catastrofeFrio = false;
+        this.catastrofeZombie = false;
     }
     
     /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
@@ -87,6 +92,11 @@ public class Modelo implements Serializable{
     */
     public void enfriamientoGlobal(){
         this.temperatura -= 10;
+        
+        // si me ponen una calor las otras se tienen que desactivar
+        this.catastrofeCalor = false;
+        this.catastrofeFrio = true;
+        this.catastrofeZombie = false;
     }
     
     /**
@@ -97,6 +107,11 @@ public class Modelo implements Serializable{
         for( Zombie zombie : zombies){
             zombie.setProbabilidad(33);
         }
+        
+         // si me ponen una calor las otras se tienen que desactivar
+        this.catastrofeCalor = false;
+        this.catastrofeFrio = false;
+        this.catastrofeZombie = true;
     }
     
     /** CALCULA UN NUMERO ALEATORIO DENTRO DEL RANGO QUE SE LE PASA*/
@@ -329,6 +344,56 @@ public class Modelo implements Serializable{
             zombies.add(zombie);
         }
                 
+    }
+    
+    @Override
+    public String toString(){
+        String hum = "";
+        String cv = "";
+        String zom = "";
+        String vam = "";
+        String catastrofe = "";
+         
+        for(int i = 0; i < this.humanos.size(); i++){
+            hum += this.humanos.get(i);
+        }
+        
+        for(int i = 0; i < this.cazaVampiros.size(); i++){
+            cv += this.cazaVampiros.get(i);
+        }
+        
+        for(int i = 0; i < this.vampiros.size(); i++){
+            vam += this.vampiros.get(i);
+        }
+        
+        for(int i = 0; i < this.zombies.size(); i++){
+            zom += this.zombies.get(i);
+        }
+        
+        if(this.catastrofeCalor){
+            catastrofe = "CALENTAMIENTO GLOBAL\n";
+        }
+        else if (this.catastrofeFrio){
+            catastrofe = "ENGRIAMIENTO GLOBAL\n";
+        }
+        else if (this.catastrofeZombie){
+            catastrofe = "INVASIÓN ZOMBIE\n";
+        }
+        else {
+            catastrofe = "";
+        }
+        
+        return catastrofe +
+               "DÍA: " + this.ndia  + "\n" +
+               "TEMPERATURA: " + this.temperatura  + "\n" +
+               "HUMANOS\n" + 
+               hum  + "\n" + 
+               "CAZAVAMPIROS\n" +
+               cv + "\n" +
+               "VAMPIROS\n" +
+               vam + "\n" +
+               "ZOMBIES\n" + 
+               zom + "\n";
     }
 
     public int getNhumanos() {

@@ -33,6 +33,14 @@ public class CazaVampiro extends Humano implements Serializable{
        }
        
        return matar;
-   }
+    }
+   
+    @Override
+    public String toString(){
+       return  "\n\tFecha de nacimiento: " + this.birth +
+               "\n\tVelocidad del humano: " + this.velocidad +
+               "\n\tHijos que ha tenido: " + this.totalhijos+
+               "\n\tVampiros a los que mata: " + this.nmata + "\n";
+    }
    
 }

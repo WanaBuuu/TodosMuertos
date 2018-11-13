@@ -105,4 +105,11 @@ public class Humano extends Seres implements Serializable{
         return this.tengoHijo;
     }
     
+    @Override
+    public String toString(){
+        return  "\n\tFecha de nacimiento: " + this.birth +
+                "\n\tVelocidad del humano: " + this.velocidad +
+                "\n\tHijos que ha tenido: " + this.totalhijos + "\n";
+    }
+    
 }

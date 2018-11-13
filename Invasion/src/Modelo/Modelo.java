@@ -323,6 +323,26 @@ public class Modelo {
         }
                 
     }
+
+    public int getNhumanos() {
+        return this.humanos.size();
+    }
+
+    public int getNcazaVampiros() {
+        return this.cazaVampiros.size();
+    }
+
+    public int getNzombies() {
+        return this.zombies.size();
+    }
+
+    public int getNvampiros() {
+        return this.vampiros.size();
+    }
+
+    public int getNdia() {
+        return ndia;
+    }
     
    
     

@@ -39,7 +39,7 @@ public class Modelo implements Serializable{
     private CazaVampiro cv;
    
     private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
-    
+    //   D:\RepositoriosCodigo\Practica3\TodosMuertos\Invasion\file.bin
     
     
     public Modelo (){
@@ -418,7 +418,7 @@ public class Modelo implements Serializable{
 
     //SERIALIZABLE
     
-    private void escribirFich(java.io.ObjectOutputStream oos) throws FileNotFoundException, IOException{
+    public void escribirFich(java.io.ObjectOutputStream oos) throws FileNotFoundException, IOException{
         
         oos = new ObjectOutputStream(new FileOutputStream(fichero));
         
@@ -445,7 +445,7 @@ public class Modelo implements Serializable{
         oos.close();
     }
     
-    private void leerFich(java.io.ObjectInputStream ois) throws FileNotFoundException, IOException, ClassNotFoundException{
+    public void leerFich(java.io.ObjectInputStream ois) throws FileNotFoundException, IOException, ClassNotFoundException{
         
         ois = new ObjectInputStream(new FileInputStream(fichero));
         
@@ -469,7 +469,7 @@ public class Modelo implements Serializable{
             
             aux = ois.readObject();
         }
-        ois.close();
+        //ois.close();
         
     }
     

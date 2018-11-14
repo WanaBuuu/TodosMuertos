@@ -8,10 +8,6 @@ package invasion;
 import java.io.Serializable;
 import java.util.Random;
 
-/**
- *
- * @author nere1
- */
 public class Vampiro extends Seres implements Serializable{
 
     private boolean meMuero = false, convierto, matoHumano;

@@ -199,13 +199,16 @@ public class Modelo implements Serializable{
         
         for(int i = 0; i < this.cazaVampiros.size(); i++){
             System.out.println("estoy reproduciendome " + numhijos);
+            System.out.println("\n");
             if(this.cazaVampiros.get(i).tengoHijo(this.temperatura)){
                 numhijos = this.cazaVampiros.get(i).getNhijos();
                 System.out.println("estoy reproduciendome " + numhijos);
+                System.out.println("\n");
                 for(int j = 0; j < numhijos; j++){
                     cv = new CazaVampiro(this.ndia, this.cazaVampiros.get(i).getVelocidad());
                     this.cazaVampiros.add(cv);
                      System.out.println("estoy reproduciendome " + numhijos);
+                     System.out.println("\n");
                 }
             }
         }

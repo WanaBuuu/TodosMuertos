@@ -467,9 +467,10 @@ public class Modelo implements Serializable{
             while (ois.available() != 0){
                 aux = ois.readObject();        
                 
-                if (aux instanceof Humano)
-                    this.humanos.add((Humano) aux);
-
+                if (aux instanceof Humano){
+                    Humano haux = new Humano(this.ndia, ((Humano) aux).getVelocidad());
+                    this.humanos.add(haux);
+                }
                 if (aux instanceof CazaVampiro)
                     this.cazaVampiros.add((CazaVampiro) aux);
 

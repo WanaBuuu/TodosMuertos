@@ -104,6 +104,12 @@ public class Humano extends Seres implements Serializable{
         
         return this.tengoHijo;
     }
+
+    public int getBirth() {
+        return birth;
+    }
+    
+    
     
     @Override
     public String toString(){

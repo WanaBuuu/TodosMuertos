@@ -39,7 +39,7 @@ public class Modelo implements Serializable{
     private CazaVampiro cv;
    
     private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
-    //   D:\RepositoriosCodigo\Practica3\TodosMuertos\Invasion\file.bin
+    //D:\RepositoriosCodigo\Practica3\TodosMuertos\Invasion\file.bin
     //C:\Users\evely_001\Desktop\Clase\3º\1er cuatri\IS2\Practicas\P3\TodosMuertos\Invasion\file.bin
     
     
@@ -424,10 +424,13 @@ public class Modelo implements Serializable{
     
     public void escribirFich(java.io.ObjectOutputStream oos) throws FileNotFoundException, IOException{
         
+        
         oos = new ObjectOutputStream(new FileOutputStream(fichero));
         
         oos.writeInt(this.ndia);
         oos.writeFloat(this.temperatura);
+        
+        
         
         for (int i = 0; i < this.humanos.size(); i++)
         {
@@ -456,23 +459,22 @@ public class Modelo implements Serializable{
         
         ois = new ObjectInputStream(new FileInputStream(fichero));
         
-        // Se lee el primer objeto
-        
         Object aux;
         
-        // Mientras haya objetos
         try {
             this.ndia = ois.readInt();
             this.temperatura = ois.readFloat();
             
-            while (ois.available() != 0){
-                aux = ois.readObject();        
+            // Mientras haya objetos
+            while (ois!=null){
                 
-                if (aux instanceof Humano){
-                    Humano haux = new Humano(this.ndia, ((Humano) aux).getVelocidad());
-                    this.humanos.add(haux);
-                    System.out.println("Velocidad " + ((Humano) aux).getVelocidad());
-                }
+                aux = ois.readObject(); 
+                
+                System.out.println(aux.toString());
+
+                if (aux instanceof Humano)
+                    this.humanos.add((Humano) aux);
+                
                 if (aux instanceof CazaVampiro)
                     this.cazaVampiros.add((CazaVampiro) aux);
 
@@ -483,7 +485,7 @@ public class Modelo implements Serializable{
                     this.zombies.add((Zombie) aux);
             }
             ois.close();
-            System.out.println(this.humanos.size());
+            
         }catch(IOException ex) {
 
             System.err.println("An IOException was caught: " + ex.getMessage());

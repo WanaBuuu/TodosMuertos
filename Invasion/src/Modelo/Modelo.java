@@ -453,25 +453,32 @@ public class Modelo implements Serializable{
         Object aux = ois.readObject();
 
         // Mientras haya objetos
-        while (aux!=null)
-        {
-            System.out.println(aux.toString());
-            if (aux instanceof Humano)
-                this.humanos.add((Humano) aux);
-            
-            if (aux instanceof CazaVampiro)
-                this.cazaVampiros.add((CazaVampiro) aux);
-            
-            if (aux instanceof Vampiro)
-                this.vampiros.add((Vampiro) aux);
-            
-            if (aux instanceof Zombie)
-                this.zombies.add((Zombie) aux);
-            
-            aux = ois.readObject();
+        try {
+            while (aux!=null){
+                System.out.println(aux.toString());
+                if (aux instanceof Humano)
+                    this.humanos.add((Humano) aux);
+
+                if (aux instanceof CazaVampiro)
+                    this.cazaVampiros.add((CazaVampiro) aux);
+
+                if (aux instanceof Vampiro)
+                    this.vampiros.add((Vampiro) aux);
+
+                if (aux instanceof Zombie)
+                    this.zombies.add((Zombie) aux);
+
+                aux = ois.readObject();
+            }
+            ois.close();
+        }catch(IOException ex) {
+
+            System.err.println("An IOException was caught: " + ex.getMessage());
+
+            ex.printStackTrace();
         }
-        ois.close();
     }
-    
 }
+    
+
 

@@ -6,6 +6,7 @@
 package Vista;
 
 import Modelo.Modelo;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,6 +14,7 @@ import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import static jdk.nashorn.tools.ShellFunctions.input;
 
 /**
  *
@@ -244,11 +246,11 @@ public class Vista extends javax.swing.JFrame{
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nVampiros)
                             .addComponent(nZombies))
-                        .addGap(0, 149, Short.MAX_VALUE))
+                        .addGap(0, 293, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(salir)
-                        .addGap(28, 28, 28))))
+                        .addGap(90, 90, 90))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(431, 431, 431)
                 .addComponent(jLabel1)
@@ -379,11 +381,16 @@ public class Vista extends javax.swing.JFrame{
         
         try {
             this.m.leerFich(ois);
-        } catch (IOException ex) {
+        }catch(EOFException eof){
+            System.out.println(eof);
+        }
+        catch (IOException ex) {
             Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
     }//GEN-LAST:event_recuperarActionPerformed
 
     

@@ -1,4 +1,4 @@
-/**
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -38,9 +38,9 @@ public class Modelo implements Serializable{
     private Humano h;
     private CazaVampiro cv;
    
-    
+    private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
     //   D:\RepositoriosCodigo\Practica3\TodosMuertos\Invasion\file.bin
-    private File fichero = new File ("D:\\RepositoriosCodigo\\Practica3\\TodosMuertos\\Invasion\\file.bin");
+    
     
     public Modelo (){
         
@@ -418,8 +418,8 @@ public class Modelo implements Serializable{
 
     //SERIALIZABLE
     
-    public void escribirFich( java.io.ObjectOutputStream oos) throws FileNotFoundException, IOException{
-       
+    public void escribirFich(java.io.ObjectOutputStream oos) throws FileNotFoundException, IOException{
+        
         oos = new ObjectOutputStream(new FileOutputStream(fichero));
         
         for (int i = 0; i < this.humanos.size(); i++)

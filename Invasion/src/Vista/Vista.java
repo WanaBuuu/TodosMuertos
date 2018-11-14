@@ -67,6 +67,7 @@ public class Vista extends javax.swing.JFrame{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 0, 0));
+        setSize(new java.awt.Dimension(0, 0));
 
         NuevoEntorno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         NuevoEntorno.setText("NUEVO ENTORNO");
@@ -248,7 +249,6 @@ public class Vista extends javax.swing.JFrame{
                             .addComponent(nZombies))
                         .addGap(0, 293, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(salir)
                         .addGap(90, 90, 90))))
             .addGroup(layout.createSequentialGroup()

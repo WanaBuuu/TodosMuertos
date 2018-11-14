@@ -84,7 +84,7 @@ public class VerResumen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        this.setVisible(false); // cambiarlo luego por lo que toca
+        this.dispose();
     }//GEN-LAST:event_salirActionPerformed
 
     /**

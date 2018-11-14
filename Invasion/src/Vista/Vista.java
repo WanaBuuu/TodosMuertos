@@ -28,7 +28,13 @@ public class Vista extends javax.swing.JFrame{
     public Vista() {
         initComponents();
         
-        m = new Modelo();        
+        m = new Modelo();     
+        
+        this.CalentamientoGlobal.setEnabled(false);
+        this.EnfriamientoGlobal.setEnabled(false);
+        this.InvasionZombie.setEnabled(false);
+        this.PasarUnDia.setEnabled(false);
+        this.PasarDiezDias.setEnabled(false);
     }
 
     /**
@@ -349,7 +355,13 @@ public class Vista extends javax.swing.JFrame{
 
     private void NuevoEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoEntornoActionPerformed
         this.m.crearEntorno();
-        System.out.println("Entorno creado");
+       
+       this.CalentamientoGlobal.setEnabled(true);
+        this.EnfriamientoGlobal.setEnabled(true);
+        this.InvasionZombie.setEnabled(true);
+        this.PasarUnDia.setEnabled(true);
+        this.PasarDiezDias.setEnabled(true);
+        
         this.updateTag();
     }//GEN-LAST:event_NuevoEntornoActionPerformed
 
@@ -364,7 +376,13 @@ public class Vista extends javax.swing.JFrame{
     }//GEN-LAST:event_InvasionZombieActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        
+        ObjectOutputStream oos = null;
+        try {
+            this.m.escribirFich(oos);
+        } catch (IOException ex) {
+            Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
     }//GEN-LAST:event_salirActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed

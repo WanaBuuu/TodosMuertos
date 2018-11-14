@@ -397,6 +397,12 @@ public class Vista extends javax.swing.JFrame{
     private void recuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recuperarActionPerformed
         ObjectInputStream ois = null;
         
+        this.CalentamientoGlobal.setEnabled(true);
+        this.EnfriamientoGlobal.setEnabled(true);
+        this.InvasionZombie.setEnabled(true);
+        this.PasarUnDia.setEnabled(true);
+        this.PasarDiezDias.setEnabled(true);
+        
         try {
             this.m.leerFich(ois);
         }catch(EOFException eof){
@@ -409,6 +415,8 @@ public class Vista extends javax.swing.JFrame{
         }
         
         this.updateTag();
+        
+        this.recuperar.setEnabled(false);
     }//GEN-LAST:event_recuperarActionPerformed
 
     

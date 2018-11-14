@@ -38,7 +38,7 @@ public class Modelo implements Serializable{
     private Humano h;
     private CazaVampiro cv;
    
-    private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
+    private File fichero = new File ("D:\\RepositoriosCodigo\\Practica3\\TodosMuertos\\Invasion\\file.bin");
     //D:\RepositoriosCodigo\Practica3\TodosMuertos\Invasion\file.bin
     //C:\Users\evely_001\Desktop\Clase\3º\1er cuatri\IS2\Practicas\P3\TodosMuertos\Invasion\file.bin
     
@@ -198,17 +198,17 @@ public class Modelo implements Serializable{
         numhijos = 0;
         
         for(int i = 0; i < this.cazaVampiros.size(); i++){
-            System.out.println("estoy reproduciendome " + numhijos);
+            System.out.println("estoy reproduciendome ");
             System.out.println("\n");
             if(this.cazaVampiros.get(i).tengoHijo(this.temperatura)){
                 numhijos = this.cazaVampiros.get(i).getNhijos();
-                System.out.println("estoy reproduciendome " + numhijos);
+                System.out.println("estoy reproduciendome ");
                 System.out.println("\n");
                 for(int j = 0; j < numhijos; j++){
                     cv = new CazaVampiro(this.ndia, this.cazaVampiros.get(i).getVelocidad());
                     this.cazaVampiros.add(cv);
-                     System.out.println("estoy reproduciendome " + numhijos);
-                     System.out.println("\n");
+                    System.out.println("estoy reproduciendome ");
+                    System.out.println("\n");
                 }
             }
         }
@@ -424,13 +424,10 @@ public class Modelo implements Serializable{
     
     public void escribirFich(java.io.ObjectOutputStream oos) throws FileNotFoundException, IOException{
         
-        
         oos = new ObjectOutputStream(new FileOutputStream(fichero));
         
         oos.writeInt(this.ndia);
         oos.writeFloat(this.temperatura);
-        
-        
         
         for (int i = 0; i < this.humanos.size(); i++)
         {
@@ -485,13 +482,15 @@ public class Modelo implements Serializable{
                     this.zombies.add((Zombie) aux);
             }
             ois.close();
-            
         }catch(IOException ex) {
 
             System.err.println("An IOException was caught: " + ex.getMessage());
 
             ex.printStackTrace();
         }
+        
+        System.out.println("N humanos" + this.humanos.size());
+        System.out.println("N cazavampiros" + this.cazaVampiros.size());
     }
 }
     

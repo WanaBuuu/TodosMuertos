@@ -38,8 +38,9 @@ public class Modelo implements Serializable{
     private Humano h;
     private CazaVampiro cv;
    
-    private File fichero = new File ("D:\\RepositoriosCodigo\\Practica3\\TodosMuertos\\Invasion\\file.bin");
+    private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
     //   D:\RepositoriosCodigo\Practica3\TodosMuertos\Invasion\file.bin
+    //C:\Users\evely_001\Desktop\Clase\3º\1er cuatri\IS2\Practicas\P3\TodosMuertos\Invasion\file.bin
     
     
     public Modelo (){
@@ -467,6 +468,7 @@ public class Modelo implements Serializable{
                 if (aux instanceof Humano){
                     Humano haux = new Humano(this.ndia, ((Humano) aux).getVelocidad());
                     this.humanos.add(haux);
+                    System.out.println("Velocidad " + ((Humano) aux).getVelocidad());
                 }
                 if (aux instanceof CazaVampiro)
                     this.cazaVampiros.add((CazaVampiro) aux);

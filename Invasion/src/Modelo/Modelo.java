@@ -455,6 +455,7 @@ public class Modelo implements Serializable{
         // Mientras haya objetos
         while (aux!=null)
         {
+            System.out.println(aux.toString());
             if (aux instanceof Humano)
                 this.humanos.add((Humano) aux);
             
@@ -469,7 +470,7 @@ public class Modelo implements Serializable{
             
             aux = ois.readObject();
         }
-        //ois.close();
+        ois.close();
         
     }
     

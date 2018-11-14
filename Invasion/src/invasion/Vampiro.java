@@ -45,7 +45,6 @@ public class Vampiro extends Seres implements Serializable{
                     this.convierto = true;
                     this.nconvierte ++;
                 }
-                    
             }
         }
         else{

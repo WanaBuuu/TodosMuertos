@@ -38,7 +38,7 @@ public class Modelo implements Serializable{
     private Humano h;
     private CazaVampiro cv;
    
-    private File fichero = new File ("C:\\Users\\evely_001\\Desktop\\Clase\\3º\\1er cuatri\\IS2\\Practicas\\P3\\TodosMuertos\\Invasion\\file.bin");
+    private File fichero = new File ("D:\\RepositoriosCodigo\\Practica3\\TodosMuertos\\Invasion\\file.bin");
     //   D:\RepositoriosCodigo\Practica3\TodosMuertos\Invasion\file.bin
     
     
@@ -422,6 +422,9 @@ public class Modelo implements Serializable{
         
         oos = new ObjectOutputStream(new FileOutputStream(fichero));
         
+        oos.writeInt(this.ndia);
+        oos.writeFloat(this.temperatura);
+        
         for (int i = 0; i < this.humanos.size(); i++)
         {
             oos.writeObject(this.humanos.get(i));
@@ -450,12 +453,17 @@ public class Modelo implements Serializable{
         ois = new ObjectInputStream(new FileInputStream(fichero));
         
         // Se lee el primer objeto
-        Object aux = ois.readObject();
-
+        
+        Object aux;
+        
         // Mientras haya objetos
         try {
-            while (aux!=null){
-                System.out.println(aux.toString());
+            this.ndia = ois.readInt();
+            this.temperatura = ois.readFloat();
+            
+            while (ois.available() != 0){
+                aux = ois.readObject();        
+                
                 if (aux instanceof Humano)
                     this.humanos.add((Humano) aux);
 
@@ -467,8 +475,6 @@ public class Modelo implements Serializable{
 
                 if (aux instanceof Zombie)
                     this.zombies.add((Zombie) aux);
-
-                aux = ois.readObject();
             }
             ois.close();
         }catch(IOException ex) {

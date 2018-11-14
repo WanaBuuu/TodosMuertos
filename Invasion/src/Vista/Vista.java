@@ -390,7 +390,7 @@ public class Vista extends javax.swing.JFrame{
             Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+        this.updateTag();
     }//GEN-LAST:event_recuperarActionPerformed
 
     

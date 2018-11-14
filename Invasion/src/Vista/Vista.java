@@ -417,6 +417,7 @@ public class Vista extends javax.swing.JFrame{
         this.updateTag();
         
         this.recuperar.setEnabled(false);
+        this.NuevoEntorno.setEnabled(false);
     }//GEN-LAST:event_recuperarActionPerformed
 
     

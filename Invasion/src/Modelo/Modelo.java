@@ -74,48 +74,37 @@ public class Modelo implements Serializable{
     public int getDia() {
         return this.ndia;
     }
-    /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
-    * ASI QUE SUBONGO QUE DEBEREMOS TENER UN BOOL PARA CUANDO HAGAMOS EL SIGUIENTE DIA
-    * RESTABLECER A UNA TEM NORMAL
-    */
+  
     public void calentamientoGlobal(){
         this.temperatura += 10;
         
-        // si me ponen una calor las otras se tienen que desactivar
+        // si me ponen una catastrofe las otras se tienen que desactivar
         this.catastrofeCalor = true;
         this.catastrofeFrio = false;
         this.catastrofeZombie = false;
     }
-    
-    /** HAY QUE HACER QUE SEA SOLO PARA ESE DIA 
-    * ASI QUE SUBONGO QUE DEBEREMOS TENER UN BOOL PARA CUANDO HAGAMOS EL SIGUIENTE DIA
-    * RESTABLECER A UNA TEM NORMAL
-    */
+   
     public void enfriamientoGlobal(){
         this.temperatura -= 10;
         
-        // si me ponen una calor las otras se tienen que desactivar
+        // si me ponen una castrofe las otras se tienen que desactivar
         this.catastrofeCalor = false;
         this.catastrofeFrio = true;
         this.catastrofeZombie = false;
     }
     
-    /**
-     * Crea una opción que permita incrementar la probabilidad de
-     * que un zombie alcance, y por tanto convierta a un humano en zombie, a 1/3.
-     */
     public void invasionZombie(){
         for( Zombie zombie : zombies){
             zombie.setProbabilidad(33);
         }
         
-         // si me ponen una calor las otras se tienen que desactivar
+         // si me ponen una casatrofe las otras se tienen que desactivar
         this.catastrofeCalor = false;
         this.catastrofeFrio = false;
         this.catastrofeZombie = true;
     }
     
-    /** CALCULA UN NUMERO ALEATORIO DENTRO DEL RANGO QUE SE LE PASA*/
+    /** CALCULA UN NUMERO ALEATORIO DENTRO DEL RANGO QUE SE LE PAS*/
     public final int calcularRandom(int desde, int hasta){
         Random aleatorio = new Random(System.currentTimeMillis());
         
@@ -132,27 +121,45 @@ public class Modelo implements Serializable{
         int idvamp = 0;
         
         for(int i = 0; i < this.cazaVampiros.size(); i++){
+            System.out.println("¿Me toca matar un vampiro?");
+            
             if(this.cazaVampiros.get(i).meTocaMatarVampiro()){
+                System.out.println("Si");
+                
                 if(!this.vampiros.isEmpty()){
                     idvamp = this.calcularRandom(0, (this.vampiros.size()-1));
                     this.vampiros.remove(idvamp);
+                    
+                    System.out.println("He matado un vampiro");
                 }
                 else
-                    System.out.println("No hay vampiros");
+                    System.out.println("No hay vampiros que matar");
+            }
+            else {
+                System.out.println("No");
             }
         }
         
-        //Convertir Zombies saber si le toca convertir
-        Object o = this.masLento();
-        
+        //Convertir Zombies saber si le toca converti   
+        Object o;
         for(int i = 0; i < this.zombies.size(); i++){
+            System.out.println("¿me toca convertir a un humano?");
+            
             if(this.zombies.get(i).MeTocaConvertir()){
+                System.out.println("Si");
+                o = this.masLento();
+                
                 if(o instanceof Humano){
                     this.humanos.remove(o);
+                    System.out.println("convierto en zombie un cazavampiros");
                 }
                 else{
                     this.cazaVampiros.remove(o);
+                    System.out.println("convierto en zombie un humano");
                 }
+            }
+            else{
+                System.out.println("No");
             }
         }
         
@@ -160,7 +167,10 @@ public class Modelo implements Serializable{
         int idhum;
         
         for(int i = 0; i < this.vampiros.size(); i++){
+            System.out.println("¿me toca beber sangre?");
+            
             if(this.vampiros.get(i).tengoQueComer(this.humanos.isEmpty())){
+                System.out.println("Si");
                 
                 if(!this.humanos.isEmpty()){
                     idhum = this.calcularRandom(0, this.humanos.size()-1);
@@ -168,48 +178,78 @@ public class Modelo implements Serializable{
                     if(this.vampiros.get(i).getMatoHumano()){
                         //Matar a un humano
                         this.humanos.remove(idhum);
+                        
+                        System.out.println("Lo mato sin querer");
                     }
                     else{
                         //Convertir a humano en vampiro
                         this.humanos.remove(idhum);
                         this.vampiros.add(v = new Vampiro(this.ndia));
+                        
+                        System.out.println("Lo convierto");
                     }
                 }
+                else{
+                    System.out.println("No quedan humanos");
+                }
                 
+            }
+            else {
+                System.out.println("No");
             }
         }
         
         //Reproducir Humanos saber si va a tener hijos
-        int numhijos = 0;
+        int numhijos = 0; // creoque no cal
         
+        System.out.println("HUMANOS\n");
         for(int i = 0; i < this.humanos.size(); i++){
+            System.out.println("¿me tengo que reproducir?");
+            System.out.println("  ");
             
             if(this.humanos.get(i).tengoHijo(this.temperatura)){
                 numhijos = this.humanos.get(i).getNhijos();
                 
+                System.out.println("Si");
+                System.out.println("\n");
+                System.out.println("tengo : " + numhijos + " hijos");                
+                
                 for(int j = 0; j < numhijos; j++){
                     h = new Humano(this.ndia, this.humanos.get(i).getVelocidad());
                     this.humanos.add(h);
+                   
+                    System.out.println(j);
+                    System.out.println("\n");
                 }
+            }
+            else{
+                System.out.println("NO");
             }
         }
         
         //Reproducir CazaVampiros saber si va a tener
-        numhijos = 0;
+        numhijos = 0; // creo que no cal
         
+        System.out.println("CAZAVAMBIROS\n");
         for(int i = 0; i < this.cazaVampiros.size(); i++){
-            System.out.println("estoy reproduciendome ");
-            System.out.println("\n");
+            System.out.println("¿me tengo que reproducir?");
+            System.out.println("  ");
+            
             if(this.cazaVampiros.get(i).tengoHijo(this.temperatura)){
                 numhijos = this.cazaVampiros.get(i).getNhijos();
-                System.out.println("estoy reproduciendome ");
+                System.out.println("Si");
                 System.out.println("\n");
+                System.out.println("tengo : " + numhijos + " hijos");
+                
                 for(int j = 0; j < numhijos; j++){
                     cv = new CazaVampiro(this.ndia, this.cazaVampiros.get(i).getVelocidad());
                     this.cazaVampiros.add(cv);
-                    System.out.println("estoy reproduciendome ");
+                    System.out.println(j);
                     System.out.println("\n");
                 }
+            }
+            else {
+                System.out.println("NO");
             }
         }
         

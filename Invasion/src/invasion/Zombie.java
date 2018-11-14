@@ -28,9 +28,11 @@ public class Zombie extends Seres implements Serializable{
     }
 
     public boolean MeTocaConvertir (){
-        this.random = this.calcularRandom(1, 100);
+        this.meTocaMatar = false;
         
-        if(this.random <= this.probabilidad){ // ME TOCA MAAAAAR
+        this.random = this.calcularRandom(1, this.probabilidad);
+        
+        if(this.random  == 1 ){ // ME TOCA MAAAAAR
             meTocaMatar = true;
             this.nconvertidos++;
         }
@@ -42,8 +44,9 @@ public class Zombie extends Seres implements Serializable{
     public boolean meMuero() {
         int dia = model.getDia();//Le paso el modelo para que sepa el numero de dia
         
+        this.meMuero = false;
+        
         if((dia - this.birth) >= 8){ // ME TENGO QUE MORIR
-            meMuero = true;
             this.meMuero = true;
         }
         

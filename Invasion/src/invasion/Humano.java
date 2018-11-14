@@ -32,7 +32,7 @@ public class Humano extends Seres implements Serializable{
     
 
     public int getNhijos() {
-        return nhijos;
+        return this.nhijos;
     }
 
     
@@ -46,13 +46,13 @@ public class Humano extends Seres implements Serializable{
 
     @Override
     public boolean meMuero() {
+        this.meMuero = false;
         
         //Probabilidad de morir de forma natural -> 1/500
         if(this.calcularRandom(1, 500) == 1)
             this.meMuero = true;
-        
         //Probabilidad de morir por otras causas (accidentes, inanición, enfermedades, etc.) -> 1/300
-        if(this.calcularRandom(1, 300) == 1)
+        else if(this.calcularRandom(1, 300) == 1)
             this.meMuero = true;
         
         return this.meMuero;
@@ -73,19 +73,17 @@ public class Humano extends Seres implements Serializable{
     
     
     public boolean tengoHijo(float temperatura) {
-        
         int aux, aux2;
         
         this.tengoHijo = false;
         
-        
-        if(temperatura >= 22){
+        if(temperatura >= 22.0){
             aux = this.calcularRandom(1, 15);
             if(aux == 1)
                 this.tengoHijo = true;
             
         }
-        else if(temperatura < 22 && temperatura > 18){
+        else if(temperatura < 22.0 && temperatura > 18.0){
             aux = this.calcularRandom(1, 30);
             if(aux == 1)
                 this.tengoHijo = true;
@@ -108,8 +106,6 @@ public class Humano extends Seres implements Serializable{
     public int getBirth() {
         return birth;
     }
-    
-    
     
     @Override
     public String toString(){

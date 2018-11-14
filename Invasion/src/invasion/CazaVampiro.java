@@ -7,10 +7,6 @@ package invasion;
 
 import java.io.Serializable;
 
-/**
- *
- * @author nere1
- */
 public class CazaVampiro extends Humano implements Serializable{
     private static final long serialVersionUID = 8799656478674716636L;
     private boolean meMuero = false, tengoHijo = false ;
@@ -18,7 +14,6 @@ public class CazaVampiro extends Humano implements Serializable{
 
     public CazaVampiro(int birth, int velocidad) {
         super(birth, velocidad);
-        
     }
 
    public boolean meTocaMatarVampiro(){
@@ -30,7 +25,7 @@ public class CazaVampiro extends Humano implements Serializable{
        if(random == 1){
            matar = true;
            this.nmata ++;
-       }
+        }
        
        return matar;
     }

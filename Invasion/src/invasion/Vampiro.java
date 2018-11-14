@@ -32,6 +32,7 @@ public class Vampiro extends Seres implements Serializable{
                 this.meMuero = true;
             else{
                 this.random = this.calcularRandom(1, 100); // voy a ver si tengo que matarlo o si lo voy a tranformar 
+                
                 if (this.random >= 50){ // HUMANO MUERE
                     this.matoHumano = true;
                     this.nmata++; // contamos aqui ya que mato un humano
@@ -52,11 +53,11 @@ public class Vampiro extends Seres implements Serializable{
     }
 
     public boolean getConvierto() {
-        return convierto;
+        return this.convierto;
     }
 
     public boolean getMatoHumano() {
-        return matoHumano;
+        return this.matoHumano;
     }
     
     
@@ -76,6 +77,6 @@ public class Vampiro extends Seres implements Serializable{
     
     @Override
     public boolean meMuero() {
-        return meMuero;
+        return this.meMuero;
     }
 }
